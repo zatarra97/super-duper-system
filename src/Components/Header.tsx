@@ -30,18 +30,18 @@ export default function Header({ onOpenInstagram }: HeaderProps) {
 
           <div className="flex items-center gap-2 pointer-events-auto">
             <button
-              aria-label="Menu"
-              className={`text-white bg-black/60 hover:bg-black/80 px-3 py-1 rounded transition-opacity duration-300 ${menuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
-              onClick={() => setMenuOpen(v => !v)}
-            >
-              <FontAwesomeIcon icon={menuOpen ? faTimes : faBars} />
-            </button>
-            <button
               aria-label="Instagram"
               className={`text-white bg-black/60 hover:bg-black/80 px-3 py-1 rounded transition-opacity duration-300 ${menuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
               onClick={onOpenInstagram}
             >
               <FontAwesomeIcon icon={faInstagram} />
+            </button>
+            <button
+              aria-label="Menu"
+              className={`text-white bg-black/60 hover:bg-black/80 px-3 py-1 rounded transition-opacity duration-300 ${menuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+              onClick={() => setMenuOpen(v => !v)}
+            >
+              <FontAwesomeIcon icon={menuOpen ? faTimes : faBars} />
             </button>
           </div>
         </div>
@@ -72,7 +72,7 @@ export default function Header({ onOpenInstagram }: HeaderProps) {
           </div>
 
           {/* Menu desktop - sulla stessa riga dell'icona burger */}
-          <div className="hidden md:block fixed top-4 right-4 z-50 bg-black/70 backdrop-blur rounded p-4 animate-[slideInFromRightAndLeft_0.3s_ease-out]">
+          <div className="hidden md:block fixed top-1.5 right-4 z-50 bg-black/70 backdrop-blur rounded p-4 animate-[slideInFromRightAndLeft_0.3s_ease-out]">
             <div className="flex items-center space-x-6">
               <a href="#works" className="text-white hover:underline whitespace-nowrap" onClick={() => setMenuOpen(false)}>Lavori</a>
               <a href="#about" className="text-white hover:underline whitespace-nowrap" onClick={() => setMenuOpen(false)}>Chi siamo</a>

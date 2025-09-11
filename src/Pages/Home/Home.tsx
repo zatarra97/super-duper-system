@@ -25,19 +25,29 @@ export default function Home() {
       <Header onOpenInstagram={() => window.open('https://instagram.com', '_blank')} />
 
       {/* HERO con video di sfondo */}
-      <section className="relative h-[26vh] md:h-[88vh] min-h-[230px] md:min-h-[520px]">
-        <video className="absolute inset-0 w-full md:h-full object-contain md:object-cover mt-24 md:mt-0" src="https://www.w3schools.com/html/mov_bbb.mp4" autoPlay loop muted />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/10" />
+      <section className="relative h-[20vh] sm:h-[40vh] md:h-[88vh] min-h-[150px] sm:min-h-[300px] md:min-h-[520px]">
+        <video className="absolute inset-0 w-full h-full object-contain sm:object-cover mt-16 sm:mt-20 md:mt-0" src="https://www.w3schools.com/html/mov_bbb.mp4" autoPlay loop muted />
+        <div className="absolute inset-0  sm:bg-gradient-to-t sm:from-black/70 sm:to-black/10" />
 
-        <div className="relative z-10 md:h-full flex items-start justify-center md:items-center md:justify-center pt-8 md:pt-0">
-          <button onClick={() => setShowreelOpen(true)} className="px-8 py-4 bg-white text-black font-semibold rounded hover:scale-105 transition">
-            SHOWREEL
+        <div className="relative z-10 h-full flex items-start justify-center md:items-center md:justify-center pt-4 sm:pt-6 md:pt-0 pb-8 sm:pb-12 md:pb-0">
+          <button 
+            onClick={() => setShowreelOpen(true)} 
+            className="hidden sm:block group relative px-8 md:px-12 py-4 md:py-6 bg-white text-black font-bold rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-white/20 text-sm md:text-lg tracking-wider"
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-white via-gray-100 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+            <span className="relative z-10 flex items-center gap-2">
+              <svg className="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+              SHOWREEL
+            </span>
           </button>
         </div>
       </section>
 
       {/* WORKS */}
-      <section id="works" className="max-w-7xl mx-auto px-4 py-16">
+      <section id="works" className="max-w-7xl mx-auto px-4 pt-8 sm:pt-12 md:pt-16 pb-16">
         <h2 className="text-2xl md:text-4xl font-bold mb-8">I nostri lavori</h2>
 
         {/* Filtri */}
