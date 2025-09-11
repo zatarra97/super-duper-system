@@ -25,9 +25,9 @@ export default function Home() {
       <Header onOpenInstagram={() => window.open('https://instagram.com', '_blank')} />
 
       {/* HERO con video di sfondo */}
-      <section className="relative h-[20vh] sm:h-[40vh] md:h-[88vh] min-h-[150px] sm:min-h-[300px] md:min-h-[520px]">
+      <section className="relative h-[20vh] sm:h-[40vh] md:h-[88vh] min-h-[150px] sm:min-h-[300px] md:min-h-[520px] overflow-hidden">
         <video className="absolute inset-0 w-full h-full object-contain sm:object-cover mt-16 sm:mt-20 md:mt-0" src="https://www.w3schools.com/html/mov_bbb.mp4" autoPlay loop muted />
-        <div className="absolute inset-0  sm:bg-gradient-to-t sm:from-black/70 sm:to-black/10" />
+        <div className="absolute inset-0 bg-black/20 sm:bg-gradient-to-t sm:from-black/70 sm:to-black/10" />
 
         <div className="relative z-10 h-full flex items-start justify-center md:items-center md:justify-center pt-4 sm:pt-6 md:pt-0 pb-8 sm:pb-12 md:pb-0">
           <button 
