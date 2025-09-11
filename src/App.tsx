@@ -6,6 +6,7 @@ import Privacy from './Pages/Privacy/Privacy'
 import './App.css'
 import NotFound from './Pages/NotFound/NotFound'
 import { ThemeConfig } from "flowbite-react";
+import ScrollToTop from './Components/ScrollToTop/ScrollToTop'
 
 
 
@@ -24,6 +25,7 @@ const App: React.FC = () => {
   return (
     <Router>
       <ThemeConfig dark={false} />
+      <ScrollToTop />
       <AppContent />
     </Router>
   )
