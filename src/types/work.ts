@@ -9,6 +9,7 @@ export interface WorkItem {
   id: string;
   slug: string;
   title: string;
+  shortDesc: string;
   category: WorkCategory;
   thumbnailUrl: string;
   coverVideoUrl?: string;

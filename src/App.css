@@ -10,3 +10,7 @@
   --color-secondary-light: #032b36;
   --color-secondary-dark: #032b36;
 }
+
+.btn {
+  @apply px-6 py-2 bg-white hover:bg-white/80 text-black font-semibold rounded-full transition-colors cursor-pointer;
+}

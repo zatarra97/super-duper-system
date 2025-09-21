@@ -2,13 +2,10 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
-import { faInstagram } from '@fortawesome/free-brands-svg-icons'
 
-interface HeaderProps {
-  onOpenInstagram: () => void
-}
+interface HeaderProps {}
 
-export default function Header({ onOpenInstagram }: HeaderProps) {
+export default function Header({}: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -33,7 +30,7 @@ export default function Header({ onOpenInstagram }: HeaderProps) {
   return (
     <>
       <div className={`fixed top-0 left-0 right-0 z-50 pointer-events-none transition-colors ${isScrolled ? 'bg-black/60 backdrop-blur-sm' : 'bg-transparent'}`}>
-        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+        <div className="max-w-8xl mx-auto px-4 py-4 flex items-center justify-between">
           <Link to="/" className="pointer-events-auto">
             <div className="text-white font-bold tracking-widest text-lg bg-black/60 px-3 py-1 rounded">
               STUDIO
@@ -41,13 +38,6 @@ export default function Header({ onOpenInstagram }: HeaderProps) {
           </Link>
 
           <div className="flex items-center gap-2 pointer-events-auto">
-            <button
-              aria-label="Instagram"
-              className={`text-white bg-black/60 hover:bg-black/80 px-3 py-1 rounded transition-opacity duration-300 ${menuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
-              onClick={onOpenInstagram}
-            >
-              <FontAwesomeIcon icon={faInstagram} />
-            </button>
             <button
               aria-label="Menu"
               className={`text-white bg-black/60 hover:bg-black/80 px-3 py-1 rounded transition-opacity duration-300 ${menuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
