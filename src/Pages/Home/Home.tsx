@@ -7,7 +7,7 @@ import { mockWorks } from '../../services/mockWorks'
 import { WorkCategory } from '../../types/work'
 import Footer from '../../Components/Footer'
 
-const categories: Array<'Tutti' | WorkCategory> = ['Tutti', 'Branded', 'Music Video', 'Eventi', 'Altri']
+const categories: Array<'Tutti' | WorkCategory> = ['Tutti', 'Branded', 'Music Video', 'Altri']
 
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState<'Tutti' | WorkCategory>('Tutti')

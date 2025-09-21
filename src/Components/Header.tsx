@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 
@@ -8,6 +8,46 @@ interface HeaderProps {}
 export default function Header({}: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const location = useLocation()
+
+  const handleNavigation = (section: string) => {
+    setMenuOpen(false)
+    if (location.pathname === '/') {
+      // Se siamo già sulla homepage, scrolla alla sezione
+      const element = document.getElementById(section)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+      }
+    } else {
+      // Se siamo su un'altra pagina, naviga alla homepage con hash
+      window.location.href = `/#${section}`
+    }
+  }
+
+  // Effetto per gestire lo scroll quando si arriva con hash
+  useEffect(() => {
+    const handleHashScroll = () => {
+      const hash = window.location.hash.substring(1) // Rimuove il #
+      if (hash && location.pathname === '/') {
+        setTimeout(() => {
+          const element = document.getElementById(hash)
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' })
+          }
+        }, 100) // Piccolo delay per assicurarsi che la pagina sia caricata
+      }
+    }
+
+    // Gestisce il caso quando si arriva direttamente con hash
+    handleHashScroll()
+
+    // Gestisce il caso quando l'hash cambia
+    window.addEventListener('hashchange', handleHashScroll)
+    
+    return () => {
+      window.removeEventListener('hashchange', handleHashScroll)
+    }
+  }, [location.pathname])
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 100)
@@ -17,7 +57,11 @@ export default function Header({}: HeaderProps) {
 
   useEffect(() => {
     if (menuOpen) {
-      document.body.style.overflow = 'hidden'
+      // Blocca lo scroll solo su mobile (quando il menu mobile è visibile)
+      const isMobile = window.innerWidth < 768 // md breakpoint
+      if (isMobile) {
+        document.body.style.overflow = 'hidden'
+      }
     } else {
       document.body.style.overflow = 'unset'
     }
@@ -37,10 +81,32 @@ export default function Header({}: HeaderProps) {
             </div>
           </Link>
 
-          <div className="flex items-center gap-2 pointer-events-auto">
+          <div className="flex items-center gap-4 pointer-events-auto">
+            {/* Menu items desktop - nascosti di default */}
+            <div className={`hidden md:flex items-center space-x-6 transition-all duration-300 ${menuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4 pointer-events-none'}`}>
+              <button 
+                onClick={() => handleNavigation('works')}
+                className="text-white hover:underline whitespace-nowrap cursor-pointer"
+              >
+                Lavori
+              </button>
+              <button 
+                onClick={() => handleNavigation('about')}
+                className="text-white hover:underline whitespace-nowrap cursor-pointer"
+              >
+                Chi siamo
+              </button>
+              <button 
+                onClick={() => handleNavigation('contact')}
+                className="text-white hover:underline whitespace-nowrap cursor-pointer"
+              >
+                Contatti
+              </button>
+            </div>
+            
             <button
               aria-label="Menu"
-              className={`text-white bg-black/60 hover:bg-black/80 px-3 py-1 rounded transition-opacity duration-300 ${menuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+              className="text-white bg-black/60 hover:bg-black/80 px-3 py-1 rounded transition-all duration-300 cursor-pointer"
               onClick={() => setMenuOpen(v => !v)}
             >
               <FontAwesomeIcon icon={menuOpen ? faTimes : faBars} />
@@ -61,32 +127,33 @@ export default function Header({}: HeaderProps) {
               <div className="text-white font-bold tracking-widest text-lg capitalize">{import.meta.env.VITE_APP_NAME}</div>
               <button
                 onClick={() => setMenuOpen(false)}
-                className="text-white text-2xl"
+                className="text-white text-2xl cursor-pointer"
               >
                 <FontAwesomeIcon icon={faTimes} />
               </button>
             </div>
             <div className="flex-1 flex flex-col justify-center items-center space-y-8 text-2xl">
-              <a href="#works" className="text-white hover:underline" onClick={() => setMenuOpen(false)}>Lavori</a>
-              <a href="#about" className="text-white hover:underline" onClick={() => setMenuOpen(false)}>Chi siamo</a>
-              <a href="#contact" className="text-white hover:underline" onClick={() => setMenuOpen(false)}>Contatti</a>
-            </div>
-          </div>
-
-          {/* Menu desktop - sulla stessa riga dell'icona burger */}
-          <div className="hidden md:block fixed top-1.5 right-4 z-50 bg-black/70 backdrop-blur rounded p-4 animate-[slideInFromRightAndLeft_0.3s_ease-out]">
-            <div className="flex items-center space-x-6">
-              <a href="#works" className="text-white hover:underline whitespace-nowrap" onClick={() => setMenuOpen(false)}>Lavori</a>
-              <a href="#about" className="text-white hover:underline whitespace-nowrap" onClick={() => setMenuOpen(false)}>Chi siamo</a>
-              <a href="#contact" className="text-white hover:underline whitespace-nowrap" onClick={() => setMenuOpen(false)}>Contatti</a>
-              <button
-                onClick={() => setMenuOpen(false)}
-                className="text-white hover:text-gray-300"
+              <button 
+                onClick={() => handleNavigation('works')}
+                className="text-white hover:underline cursor-pointer"
               >
-                <FontAwesomeIcon icon={faTimes} />
+                Lavori
+              </button>
+              <button 
+                onClick={() => handleNavigation('about')}
+                className="text-white hover:underline cursor-pointer"
+              >
+                Chi siamo
+              </button>
+              <button 
+                onClick={() => handleNavigation('contact')}
+                className="text-white hover:underline cursor-pointer"
+              >
+                Contatti
               </button>
             </div>
           </div>
+
         </>
       )}
 
@@ -94,10 +161,6 @@ export default function Header({}: HeaderProps) {
         @keyframes slideInFromRight {
           from { transform: translateX(100%); }
           to { transform: translateX(0); }
-        }
-        @keyframes slideInFromRightAndLeft {
-          from { transform: translateX(100%); }
-          to { transform: translateX(-60px); }
         }
         @keyframes fadeIn {
           from { opacity: 0; }
