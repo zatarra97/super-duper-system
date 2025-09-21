@@ -21,7 +21,7 @@ export const mockWorks: WorkItem[] = [
       { role: 'Fotografia', name: 'Pietro Giocondo' },
       { role: 'Montaggio', name: 'Pietro Giocondo' },
     ],
-    backstageImages: [IMG(1200, 800), IMG(1200, 800), IMG(1200, 800)],
+    backstageImages: [IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800)],
   },
   {
     id: 'w2',
@@ -41,7 +41,7 @@ export const mockWorks: WorkItem[] = [
       { role: 'Ass. fotografia', name: 'Angelo Preziusi' },
       { role: 'Montaggio', name: 'Pietro Giocondo' },
     ],
-    backstageImages: [IMG(1200, 800), IMG(1200, 800), IMG(1200, 800)],
+    backstageImages: [IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800)],
   },
   {
     id: 'w3',
@@ -61,7 +61,7 @@ export const mockWorks: WorkItem[] = [
       { role: 'Ass. fotografia', name: 'Angelo Preziusi' },
       { role: 'Montaggio', name: 'Pietro Giocondo' },
     ],
-    backstageImages: [IMG(1200, 800), IMG(1200, 800)],
+    backstageImages: [IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800)],
   },
 
   // Music Videos
@@ -85,7 +85,7 @@ export const mockWorks: WorkItem[] = [
       { role: 'Make Up & Hair Stylist', name: 'Enza Gravina' },
       { role: 'Montaggio', name: 'Pietro Giocondo' },
     ],
-    backstageImages: [IMG(1200, 800), IMG(1200, 800), IMG(1200, 800)],
+    backstageImages: [IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800)],
   },
   {
     id: 'w5',
@@ -109,7 +109,7 @@ export const mockWorks: WorkItem[] = [
       { role: 'Mermaid Hair Stylist', name: 'Beatrice Cicchelli' },
       { role: 'Montaggio', name: 'Pietro Giocondo' },
     ],
-    backstageImages: [IMG(1200, 800), IMG(1200, 800)],
+    backstageImages: [IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800)],
   },
   {
     id: 'w6',
@@ -128,7 +128,7 @@ export const mockWorks: WorkItem[] = [
       { role: 'Fotografia', name: 'Pietro Giocondo' },
       { role: 'Montaggio', name: 'Pietro Giocondo' },
     ],
-    backstageImages: [IMG(1200, 800), IMG(1200, 800)],
+    backstageImages: [IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800)],
   },
   {
     id: 'w7',
@@ -147,7 +147,7 @@ export const mockWorks: WorkItem[] = [
       { role: 'Fotografia', name: 'Pietro Giocondo' },
       { role: 'Montaggio', name: 'Pietro Giocondo' },
     ],
-    backstageImages: [IMG(1200, 800), IMG(1200, 800)],
+    backstageImages: [IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800)],
   },
   {
     id: 'w8',
@@ -166,7 +166,7 @@ export const mockWorks: WorkItem[] = [
       { role: 'Fotografia', name: 'Pietro Giocondo' },
       { role: 'Montaggio', name: 'Pietro Giocondo' },
     ],
-    backstageImages: [IMG(1200, 800), IMG(1200, 800)],
+    backstageImages: [IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800)],
   },
   {
     id: 'w9',
@@ -185,7 +185,7 @@ export const mockWorks: WorkItem[] = [
       { role: 'Ass. fotografia', name: 'Angelo Preziusi' },
       { role: 'Montaggio', name: 'Pietro Giocondo' },
     ],
-    backstageImages: [IMG(1200, 800), IMG(1200, 800)],
+    backstageImages: [IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800)],
   },
   {
     id: 'w10',
@@ -204,7 +204,7 @@ export const mockWorks: WorkItem[] = [
       { role: 'Ass. fotografia', name: 'Angelo Preziusi' },
       { role: 'Montaggio', name: 'Pietro Giocondo' },
     ],
-    backstageImages: [IMG(1200, 800), IMG(1200, 800)],
+    backstageImages: [IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800)],
   },
 
   // Cortometraggio

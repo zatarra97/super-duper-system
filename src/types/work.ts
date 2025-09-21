@@ -17,6 +17,7 @@ export interface WorkItem {
   description: string;
   crew: CrewMember[];
   backstageImages: string[];
+  backstageVideos?: string[];
 }
 
 

@@ -32,8 +32,8 @@ export default function Header({}: HeaderProps) {
       <div className={`fixed top-0 left-0 right-0 z-50 pointer-events-none transition-colors ${isScrolled ? 'bg-black/60 backdrop-blur-sm' : 'bg-transparent'}`}>
         <div className="max-w-8xl mx-auto px-4 py-4 flex items-center justify-between">
           <Link to="/" className="pointer-events-auto">
-            <div className="text-white font-bold tracking-widest text-lg bg-black/60 px-3 py-1 rounded">
-              STUDIO
+            <div className="text-white font-bold tracking-widest text-lg bg-black/60 px-3 py-1 rounded capitalize">
+              {import.meta.env.VITE_APP_NAME}
             </div>
           </Link>
 
@@ -58,7 +58,7 @@ export default function Header({}: HeaderProps) {
           {/* Menu mobile - full screen con animazione */}
           <div className="fixed inset-0 bg-black z-50 md:hidden flex flex-col animate-[slideInFromRight_0.3s_ease-out]">
             <div className="flex justify-between items-center p-4">
-              <div className="text-white font-bold tracking-widest text-lg">STUDIO</div>
+              <div className="text-white font-bold tracking-widest text-lg capitalize">{import.meta.env.VITE_APP_NAME}</div>
               <button
                 onClick={() => setMenuOpen(false)}
                 className="text-white text-2xl"
