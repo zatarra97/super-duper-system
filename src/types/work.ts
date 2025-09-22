@@ -14,6 +14,7 @@ export interface WorkItem {
   thumbnailUrl: string;
   coverVideoUrl?: string;
   trailerUrl?: string;
+  youtubeVideoUrl?: string;
   description: string;
   crew: CrewMember[];
   backstageImages: string[];

@@ -14,6 +14,7 @@ export const mockWorks: WorkItem[] = [
     category: 'Branded',
     thumbnailUrl: IMG(800, 500),
     coverVideoUrl: VIDEO,
+    youtubeVideoUrl: 'https://www.youtube.com/embed/yzak_OmhUJI',
     description: 'Commercial per Cantina Colle Petrito che celebra il dodicesimo anniversario.',
     crew: [
       { role: 'Cliente', name: 'Cantina Colle Petrito' },
@@ -31,6 +32,7 @@ export const mockWorks: WorkItem[] = [
     category: 'Branded',
     thumbnailUrl: IMG(800, 500),
     coverVideoUrl: VIDEO,
+    youtubeVideoUrl: 'https://www.youtube.com/embed/B93buytNiIg',
     description: 'Docufilm commerciale sul restauro del Faro di Minervino Murge.',
     crew: [
       { role: 'Cliente', name: 'EdilVerde SRL' },
@@ -51,6 +53,7 @@ export const mockWorks: WorkItem[] = [
     category: 'Branded',
     thumbnailUrl: IMG(800, 500),
     coverVideoUrl: VIDEO,
+    youtubeVideoUrl: 'https://www.youtube.com/embed/3FP-rOL_xj0',
     description: 'Commercial per il Comune di Minervino Murge che mostra la bellezza del territorio.',
     crew: [
       { role: 'Cliente', name: 'Comune di Minervino Murge' },
@@ -73,6 +76,7 @@ export const mockWorks: WorkItem[] = [
     category: 'Music Video',
     thumbnailUrl: IMG(800, 500),
     trailerUrl: VIDEO,
+    youtubeVideoUrl: 'https://www.youtube.com/embed/_bTTqsEO9eA',
     description: 'Videoclip musicale con Nicolò Balducci e Anna Paradiso per BIS Records.',
     crew: [
       { role: 'Con', name: 'Nicolò Balducci, Anna Paradiso, Francesca Giuliano' },
@@ -95,6 +99,7 @@ export const mockWorks: WorkItem[] = [
     category: 'Music Video',
     thumbnailUrl: IMG(800, 500),
     trailerUrl: VIDEO,
+    youtubeVideoUrl: 'https://www.youtube.com/embed/1yVRtyAyNeM',
     description: 'Videoclip musicale con atmosfere marine per BIS Records.',
     crew: [
       { role: 'Con', name: 'Nicolò Balducci, Francesco Volpe, Mariacristina Santomauro' },
@@ -119,6 +124,7 @@ export const mockWorks: WorkItem[] = [
     category: 'Music Video',
     thumbnailUrl: IMG(800, 500),
     trailerUrl: VIDEO,
+    youtubeVideoUrl: 'https://www.youtube.com/embed/EUsHzrd5uJw',
     description: 'Videoclip musicale con Carlotta Dalia per Berlin Classics.',
     crew: [
       { role: 'Con', name: 'Carlotta Dalia' },
@@ -138,6 +144,7 @@ export const mockWorks: WorkItem[] = [
     category: 'Music Video',
     thumbnailUrl: IMG(800, 500),
     trailerUrl: VIDEO,
+    youtubeVideoUrl: 'https://www.youtube.com/embed/qXsjmzU6ZbM',
     description: 'Videoclip musicale con Carlotta Dalia per Berlin Classics.',
     crew: [
       { role: 'Con', name: 'Carlotta Dalia' },
@@ -157,6 +164,7 @@ export const mockWorks: WorkItem[] = [
     category: 'Music Video',
     thumbnailUrl: IMG(800, 500),
     trailerUrl: VIDEO,
+    youtubeVideoUrl: 'https://www.youtube.com/embed/3u_yb6TbSaM',
     description: 'Videoclip musicale con Carlotta Dalia per Berlin Classics.',
     crew: [
       { role: 'Con', name: 'Carlotta Dalia' },
@@ -176,6 +184,7 @@ export const mockWorks: WorkItem[] = [
     category: 'Music Video',
     thumbnailUrl: IMG(800, 500),
     trailerUrl: VIDEO,
+    youtubeVideoUrl: 'https://www.youtube.com/embed/1BaNKs978cI',
     description: 'Videoclip musicale con Carlotta Dalia e Nicolò Balducci.',
     crew: [
       { role: 'Con', name: 'Carlotta Dalia e Nicolò Balducci' },
@@ -195,6 +204,7 @@ export const mockWorks: WorkItem[] = [
     category: 'Music Video',
     thumbnailUrl: IMG(800, 500),
     trailerUrl: VIDEO,
+    youtubeVideoUrl: 'https://www.youtube.com/embed/h0J2fFIAudk',
     description: 'Videoclip musicale con Carlotta Dalia e Nicolò Balducci.',
     crew: [
       { role: 'Con', name: 'Carlotta Dalia e Nicolò Balducci' },
@@ -216,6 +226,7 @@ export const mockWorks: WorkItem[] = [
     category: 'Altri',
     thumbnailUrl: IMG(800, 500),
     coverVideoUrl: VIDEO,
+    youtubeVideoUrl: 'https://www.youtube.com/embed/6dFY1x05fZM',
     description: 'Cortometraggio con Giuliana Stancarone e Francesco Volpe.',
     crew: [
       { role: 'Con', name: 'Giuliana Stancarone, Francesco Volpe' },

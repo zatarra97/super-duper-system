@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
+import logo from '../Images/logo.png'
+import burgerIcon from '../Images/burgerIcon.png'
 
 interface HeaderProps {}
 
@@ -74,31 +76,31 @@ export default function Header({}: HeaderProps) {
   return (
     <>
       <div className={`fixed top-0 left-0 right-0 z-50 pointer-events-none transition-colors ${isScrolled ? 'bg-black/60 backdrop-blur-sm' : 'bg-transparent'}`}>
-        <div className="max-w-8xl mx-auto px-4 py-4 flex items-center justify-between">
+        <div className="mx-auto px-4 py-4 flex items-center justify-between">
           <Link to="/" className="pointer-events-auto">
-            <div className="text-white font-bold tracking-widest text-lg bg-black/60 px-3 py-1 rounded capitalize">
-              {import.meta.env.VITE_APP_NAME}
+            <div className="text-white font-bold tracking-widest text-2xl md:py-2 md:px-3 rounded capitalize">
+              <img src={logo} alt="Bekboard Studio" className="h-12 md:h-16 " />
             </div>
           </Link>
 
-          <div className="flex items-center gap-4 pointer-events-auto">
+          <div className="flex items-center gap-4 pointer-events-auto text-2xl">
             {/* Menu items desktop - nascosti di default */}
-            <div className={`hidden md:flex items-center space-x-6 transition-all duration-300 ${menuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4 pointer-events-none'}`}>
+            <div className={`hidden md:flex items-center space-x-16 pr-22 transition-all duration-300 ${menuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4 pointer-events-none'}`}>
               <button 
                 onClick={() => handleNavigation('works')}
-                className="text-white hover:underline whitespace-nowrap cursor-pointer"
+                className="text-white hover:underline whitespace-nowrap cursor-pointer uppercase"
               >
                 Lavori
               </button>
               <button 
                 onClick={() => handleNavigation('about')}
-                className="text-white hover:underline whitespace-nowrap cursor-pointer"
+                className="text-white hover:underline whitespace-nowrap cursor-pointer uppercase"
               >
                 Chi siamo
               </button>
               <button 
                 onClick={() => handleNavigation('contact')}
-                className="text-white hover:underline whitespace-nowrap cursor-pointer"
+                className="text-white hover:underline whitespace-nowrap cursor-pointer uppercase"
               >
                 Contatti
               </button>
@@ -106,10 +108,10 @@ export default function Header({}: HeaderProps) {
             
             <button
               aria-label="Menu"
-              className="text-white bg-black/60 hover:bg-black/80 px-3 py-1 rounded transition-all duration-300 cursor-pointer"
+              className="text-white md:px-3 py-1 rounded transition-all duration-300 cursor-pointer"
               onClick={() => setMenuOpen(v => !v)}
             >
-              <FontAwesomeIcon icon={menuOpen ? faTimes : faBars} />
+              <img src={burgerIcon} className="h-8 md:h-10" />
             </button>
           </div>
         </div>
@@ -124,7 +126,7 @@ export default function Header({}: HeaderProps) {
           {/* Menu mobile - full screen con animazione */}
           <div className="fixed inset-0 bg-black z-50 md:hidden flex flex-col animate-[slideInFromRight_0.3s_ease-out]">
             <div className="flex justify-between items-center p-4">
-              <div className="text-white font-bold tracking-widest text-lg capitalize">{import.meta.env.VITE_APP_NAME}</div>
+              <div className="text-white font-bold tracking-widest text-lg capitalize"><img src={logo} alt="Bekboard Studio" className="h-12 md:h-16 " /></div>
               <button
                 onClick={() => setMenuOpen(false)}
                 className="text-white text-2xl cursor-pointer"

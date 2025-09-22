@@ -27,10 +27,19 @@ export default function WorkDetail() {
 
       {/* Media principale */}
       <section className="pt-16">
-        <div className="max-w-8xl mx-auto px-4 py-8">
-          <h1 className="text-2xl md:text-4xl font-bold mb-6">{work.title}</h1>
+        <div className="max-w-8xl mx-auto py-8">
+          <h1 className="text-2xl md:text-4xl font-bold mb-6 px-4">{work.title}</h1>
           <div className="aspect-video rounded overflow-hidden bg-black">
-            {work.coverVideoUrl || work.trailerUrl ? (
+            {work.youtubeVideoUrl ? (
+              <iframe
+                src={work.youtubeVideoUrl + "?rel=0"}
+                title={work.title}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture controls"
+                allowFullScreen
+                className="w-full h-full"
+              />
+            ) : work.coverVideoUrl || work.trailerUrl ? (
               <video
                 src={work.coverVideoUrl || work.trailerUrl}
                 controls

@@ -6,6 +6,9 @@ import FixedInstagram from '../../Components/FixedInstagram'
 import { mockWorks } from '../../services/mockWorks'
 import { WorkCategory } from '../../types/work'
 import Footer from '../../Components/Footer'
+import showreelHorizontal from '../../Images/Showreel_horizontal.mp4'
+import showreelVertical from '../../Images/Showreel_vertical.mp4'
+import scrollIcon from '../../Images/scroll.gif'
 
 const categories: Array<'Tutti' | WorkCategory> = ['Tutti', 'Branded', 'Music Video', 'Altri']
 
@@ -31,10 +34,35 @@ export default function Home() {
       <Header />
 
       {/* HERO con video di sfondo */}
-      <section className="relative h-[20vh] sm:h-[40vh] md:h-[88vh] min-h-[150px] sm:min-h-[300px] md:min-h-[520px] overflow-hidden">
-        <video className="absolute inset-0 w-full h-full object-contain sm:object-cover mt-16 sm:mt-20 md:mt-0" src="https://www.w3schools.com/html/mov_bbb.mp4" autoPlay loop muted />
-        <div className="absolute inset-0 bg-black/20 sm:bg-gradient-to-t sm:from-black/70 sm:to-black/10" />
-
+      <section className="relative h-[40dvh] md:h-[88vh] min-h-screen overflow-hidden mobile-video-container">
+        {/* Video orizzontale per desktop */}
+        <video 
+          className="absolute inset-0 w-full h-full object-cover hidden md:block" 
+          src={showreelHorizontal} 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+        />
+        {/* Video verticale per mobile */}
+        <video 
+          className="absolute inset-0 w-full h-full object-cover block md:hidden" 
+          src={showreelVertical} 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+        />
+        <div className="absolute inset-0 bg-black/20 sm:bg-gradient-to-t " />
+        
+        {/* Icona di scroll */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+          <img 
+            src={scrollIcon} 
+            alt="Scroll down" 
+            className="w-8 h-8 opacity-80 hover:opacity-100 transition-opacity duration-300 cursor-pointer z-50"
+          />
+        </div>
       </section>
 
       {/* WORKS */}
@@ -56,7 +84,7 @@ export default function Home() {
 
         {/* Griglia lavori */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {displayedWorks.map((w, index) => (
+          {displayedWorks.map((w) => (
             <Link 
               key={w.id} 
               to={`/work/${w.slug}`} 
@@ -170,6 +198,14 @@ export default function Home() {
         .animate-fadeInUp {
           animation: fadeInUp 0.3s ease-out forwards;
           opacity: 0;
+        }
+        
+        /* Soluzione per viewport mobile dinamico */
+        @media (max-width: 768px) {
+          .mobile-video-container {
+            height: 100dvh;
+            height: 100vh; /* fallback per browser che non supportano dvh */
+          }
         }
       `}</style>
     </div>
