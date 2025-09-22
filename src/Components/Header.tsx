@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
-import logo from '../Images/logo.png'
-import burgerIcon from '../Images/burgerIcon.png'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import logo from '../Images/logo.svg'
+import burgerIcon from '../Images/burgerIcon.svg'
 
 interface HeaderProps {}
 
 export default function Header({}: HeaderProps) {
-  const [isScrolled, setIsScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const location = useLocation()
 
@@ -51,11 +50,6 @@ export default function Header({}: HeaderProps) {
     }
   }, [location.pathname])
 
-  useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 100)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
 
   useEffect(() => {
     if (menuOpen) {
@@ -75,17 +69,17 @@ export default function Header({}: HeaderProps) {
 
   return (
     <>
-      <div className={`fixed top-0 left-0 right-0 z-50 pointer-events-none transition-colors ${isScrolled ? 'bg-black/60 backdrop-blur-sm' : 'bg-transparent'}`}>
+      <div className="fixed top-0 left-0 right-0 z-50 pointer-events-none bg-transparent">
         <div className="mx-auto px-4 py-4 flex items-center justify-between">
           <Link to="/" className="pointer-events-auto">
-            <div className="text-white font-bold tracking-widest text-2xl md:py-2 md:px-3 rounded capitalize">
-              <img src={logo} alt="Bekboard Studio" className="h-12 md:h-16 " />
+            <div className="text-white font-bold tracking-widest text-2xl md:pt-10 md:pl-8 rounded capitalize">
+              <img src={logo} alt="Bekboard Studio" className="h-18 md:h-[110px]" />
             </div>
           </Link>
 
-          <div className="flex items-center gap-4 pointer-events-auto text-2xl">
+          <div className="flex items-center gap-x-4 pointer-events-auto text-2xl">
             {/* Menu items desktop - nascosti di default */}
-            <div className={`hidden md:flex items-center space-x-16 pr-22 transition-all duration-300 ${menuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4 pointer-events-none'}`}>
+            <div className={`hidden md:flex items-center space-x-16 pr-16 transition-all duration-300 ${menuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4 pointer-events-none'}`}>
               <button 
                 onClick={() => handleNavigation('works')}
                 className="text-white hover:underline whitespace-nowrap cursor-pointer uppercase"
@@ -108,10 +102,10 @@ export default function Header({}: HeaderProps) {
             
             <button
               aria-label="Menu"
-              className="text-white md:px-3 py-1 rounded transition-all duration-300 cursor-pointer"
+              className="text-white md:px-8 py-1 rounded transition-all duration-300 cursor-pointer"
               onClick={() => setMenuOpen(v => !v)}
             >
-              <img src={burgerIcon} className="h-8 md:h-10" />
+              <img src={burgerIcon} className="h-8 md:h-[39px]" />
             </button>
           </div>
         </div>
