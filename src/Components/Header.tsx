@@ -3,7 +3,12 @@ import { Link, useLocation } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import logo from '../Images/logo.svg'
-import burgerIcon from '../Images/burgerIcon.svg'
+import burgerIcon from '../Images/BurgerNuovo.svg'
+import menu1 from '../Images/menu1.svg'
+import menu2 from '../Images/menu2.svg'
+import lavoriIcon from '../Images/Lavori.svg'
+import chiSiamoIcon from '../Images/Chi siamo.svg'
+import contattiIcon from '../Images/Contatti.svg'
 
 interface HeaderProps {}
 
@@ -77,35 +82,44 @@ export default function Header({}: HeaderProps) {
             </div>
           </Link>
 
-          <div className="flex items-center gap-x-4 pointer-events-auto text-2xl">
+          <div className="flex items-center gap-x-4 pointer-events-auto">
             {/* Menu items desktop - nascosti di default */}
             <div className={`hidden md:flex items-center space-x-16 pr-16 transition-all duration-300 ${menuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4 pointer-events-none'}`}>
-              <button 
-                onClick={() => handleNavigation('works')}
-                className="text-white hover:underline whitespace-nowrap cursor-pointer uppercase"
-              >
-                Lavori
-              </button>
-              <button 
-                onClick={() => handleNavigation('about')}
-                className="text-white hover:underline whitespace-nowrap cursor-pointer uppercase"
-              >
-                Chi siamo
-              </button>
-              <button 
-                onClick={() => handleNavigation('contact')}
-                className="text-white hover:underline whitespace-nowrap cursor-pointer uppercase"
-              >
-                Contatti
-              </button>
+              <div className="relative group">
+              <img src={menu1} alt="" className="absolute -inset-4 opacity-0  group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-out" style={{minWidth:"110px", marginLeft:"2px", marginTop:"-8px"}} />
+                <button 
+                  onClick={() => handleNavigation('works')}
+                  className="relative whitespace-nowrap cursor-pointer z-10 hover:opacity-80 transition-opacity"
+                >
+                  <img src={lavoriIcon} alt="Lavori" className="" />
+                </button>
+              </div>
+              <div className="relative group">
+                <img src={menu2} alt="" className="absolute -inset-4 opacity-0  group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-out" style={{minWidth:"150px", marginLeft:"2px", marginTop:"-12px"}} />
+                <button 
+                  onClick={() => handleNavigation('about')}
+                  className="relative whitespace-nowrap cursor-pointer z-10 transition-opacity"
+                >
+                  <img src={chiSiamoIcon} alt="Chi siamo" className="" />
+                </button>
+              </div>
+              <div className="relative group">
+              <img src={menu2} alt="" className="absolute -inset-4 opacity-0  group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-out" style={{minWidth:"150px", marginLeft:"-4px", marginTop:"-12px"}} />
+                <button 
+                  onClick={() => handleNavigation('contact')}
+                  className="relative whitespace-nowrap cursor-pointer z-10 hover:opacity-80 transition-opacity"
+                >
+                  <img src={contattiIcon} alt="Contatti" className="" />
+                </button>
+              </div>
             </div>
             
             <button
               aria-label="Menu"
-              className="text-white md:px-8 py-1 rounded transition-all duration-300 cursor-pointer"
+              className="text-white md:px-8 rounded transition-all duration-300 cursor-pointer"
               onClick={() => setMenuOpen(v => !v)}
             >
-              <img src={burgerIcon} className="h-8 md:h-[39px]" />
+              <img src={burgerIcon} className="h-8 md:h-[50px] -mt-2" />
             </button>
           </div>
         </div>
