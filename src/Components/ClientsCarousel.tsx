@@ -103,11 +103,18 @@ export default function ClientsCarousel() {
         }
         
         .animate-scroll-infinite {
-          animation: scroll-infinite 12s linear infinite;
+          animation: scroll-infinite 10s linear infinite;
+          will-change: transform;
         }
         
         .animate-scroll-infinite:hover {
           animation-play-state: paused;
+        }
+        
+        /* Smooth transition per evitare glitch */
+        .animate-scroll-infinite {
+          backface-visibility: hidden;
+          perspective: 1000px;
         }
       `}</style>
     </section>
