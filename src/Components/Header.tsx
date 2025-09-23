@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import { useScrollPosition } from '../hooks/useScrollPosition'
 import logo from '../Images/logo.svg'
 import burgerIcon from '../Images/burgerIcon.svg'
 import headerHoverShort from '../Images/header_hover_short.svg'
@@ -15,6 +16,40 @@ interface HeaderProps {}
 export default function Header({}: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false)
   const location = useLocation()
+  const scrollY = useScrollPosition()
+
+  // Calcola se l'header deve avere lo sfondo
+  const [showBackground, setShowBackground] = useState(false)
+
+  useEffect(() => {
+    const calculateBackground = () => {
+      // Se siamo nella pagina di dettaglio lavori, l'header non è fisso
+      if (location.pathname !== '/') {
+        setShowBackground(false)
+        return
+      }
+      
+      // Calcola l'altezza del video hero (40dvh su mobile, 88vh su desktop)
+      const isMobile = window.innerWidth < 768
+      const heroHeight = isMobile ? window.innerHeight * 0.4 : window.innerHeight * 0.88
+      
+      // Mostra lo sfondo solo quando abbiamo scrollato oltre il video hero
+      setShowBackground(scrollY > heroHeight - 100) // 100px di margine per transizione più fluida
+    }
+
+    calculateBackground()
+  }, [scrollY, location.pathname])
+
+  // Ricalcola quando cambia la dimensione della finestra
+  useEffect(() => {
+    const handleResize = () => {
+      // Forza il re-render quando cambia la dimensione della finestra
+      setMenuOpen(prev => prev)
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   const handleNavigation = (section: string) => {
     setMenuOpen(false)
@@ -74,7 +109,9 @@ export default function Header({}: HeaderProps) {
 
   return (
     <>
-      <div className="fixed top-0 left-0 right-0 z-50 pointer-events-none bg-transparent">
+      <div className={`${location.pathname === '/' ? 'fixed' : 'relative'} top-0 left-0 right-0 z-50 pointer-events-none transition-all duration-300 ${
+        showBackground ? 'bg-black/60 backdrop-blur-md' : 'bg-transparent'
+      }`}>
         <div className="mx-auto px-4 py-4 flex items-center justify-between">
           <Link to="/" className="pointer-events-auto">
             <div className="text-white font-bold tracking-widest text-2xl md:pt-10 md:pl-8 rounded capitalize">
@@ -134,7 +171,9 @@ export default function Header({}: HeaderProps) {
           {/* Menu mobile - full screen con animazione */}
           <div className="fixed inset-0 bg-black z-50 md:hidden flex flex-col animate-[slideInFromRight_0.3s_ease-out]">
             <div className="flex justify-between items-center p-4">
-              <div className="text-white font-bold tracking-widest text-lg capitalize"><img src={logo} alt="Bekboard Studio" className="h-12 md:h-16 " /></div>
+              <div className="text-white font-bold tracking-widest text-lg capitalize">
+                <img src={logo} alt="Bekboard Studio" className="h-18 md:h-[110px]" />
+              </div>
               <button
                 onClick={() => setMenuOpen(false)}
                 className="text-white text-2xl cursor-pointer"
@@ -142,24 +181,24 @@ export default function Header({}: HeaderProps) {
                 <FontAwesomeIcon icon={faTimes} />
               </button>
             </div>
-            <div className="flex-1 flex flex-col justify-center items-center space-y-8 text-2xl">
+            <div className="flex-1 flex flex-col justify-center items-center space-y-14 text-2xl">
               <button 
                 onClick={() => handleNavigation('works')}
-                className="text-white hover:underline cursor-pointer"
+                className="cursor-pointer"
               >
-                Lavori
+                <img src={lavoriIcon} alt="Lavori" className="h-8 w-auto hover:scale-105 transition-all duration-300" />
               </button>
               <button 
                 onClick={() => handleNavigation('about')}
-                className="text-white hover:underline cursor-pointer"
+                className="cursor-pointer"
               >
-                Chi siamo
+                <img src={chiSiamoIcon} alt="Chi siamo" className="h-8 w-auto hover:scale-105 transition-all duration-300" />
               </button>
               <button 
                 onClick={() => handleNavigation('contact')}
-                className="text-white hover:underline cursor-pointer"
+                className="cursor-pointer"
               >
-                Contatti
+                <img src={contattiIcon} alt="Contatti" className="h-8 w-auto hover:scale-105 transition-all duration-300" />
               </button>
             </div>
           </div>

@@ -11,11 +11,56 @@ import showreelHorizontal from '../../Images/Showreel_horizontal.mp4'
 import showreelVertical from '../../Images/Showreel_vertical.mp4'
 import scrollIcon from '../../Images/scroll.gif'
 
-const categories: Array<'Tutti' | WorkCategory> = ['Tutti', 'Branded', 'Music Video', 'Altri']
+// Import delle immagini SVG per i filtri
+import tuttiIcon from '../../Images/lavori/Tutti.svg'
+import tuttiHoverIcon from '../../Images/lavori/Tutti_hover.svg'
+import brandedIcon from '../../Images/lavori/Branded.svg'
+import brandedHoverIcon from '../../Images/lavori/Branded_hover.svg'
+import musicVideoIcon from '../../Images/lavori/Music Video.svg'
+import musicVideoHoverIcon from '../../Images/lavori/Music Video_hover.svg'
+import eventiIcon from '../../Images/lavori/Eventi.svg'
+import eventiHoverIcon from '../../Images/lavori/Eventi_hover.svg'
+import altriIcon from '../../Images/lavori/Altri.svg'
+import altriHoverIcon from '../../Images/lavori/Altri_hover.svg'
+import altriProgettiIcon from '../../Images/lavori/Altri_progetti.svg'
+import altriProgettiHoverIcon from '../../Images/lavori/Altri_progetti_hover.svg'
+import inostriLavoriImg from '../../Images/lavori/i_nostri_lavori.svg'
+import chiSiamoImg from '../../Images/chi_siamo/chi_siamo.svg'
+
+const categories: Array<'Tutti' | WorkCategory> = ['Tutti', 'Branded', 'Music Video', 'Eventi', 'Altri']
+
+// Mappa delle categorie alle loro immagini SVG
+const categoryIcons: Record<'Tutti' | 'Branded' | 'Music Video' | 'Eventi' | 'Altri', string> = {
+  'Tutti': tuttiIcon,
+  'Branded': brandedIcon,
+  'Music Video': musicVideoIcon,
+  'Eventi': eventiIcon,
+  'Altri': altriIcon
+}
+
+// Mappa delle categorie alle loro immagini hover SVG
+const categoryHoverIcons: Record<'Tutti' | 'Branded' | 'Music Video' | 'Eventi' | 'Altri', string> = {
+  'Tutti': tuttiHoverIcon,
+  'Branded': brandedHoverIcon,
+  'Music Video': musicVideoHoverIcon,
+  'Eventi': eventiHoverIcon,
+  'Altri': altriHoverIcon
+}
+
+// Mappa delle classi personalizzate per le immagini hover
+const categoryHoverClasses: Record<'Tutti' | 'Branded' | 'Music Video' | 'Eventi' | 'Altri', string> = {
+  'Tutti': 'min-w-[85px] -mt-4 -ml-3 md:min-w-[120px] md:-mt-6 md:-ml-4',
+  'Branded': 'min-w-[120px] -mt-5.5 -ml-3 md:min-w-[160px] md:-mt-7.5 md:-ml-4',
+  'Music Video': 'min-w-[160px] -mt-6.5 -ml-2 md:min-w-[210px] md:-mt-9 md:-ml-3',
+  'Eventi': 'min-w-[95px] -mt-4.5 -ml-3 md:min-w-[120px] md:-mt-6 md:-ml-3',
+  'Altri': 'min-w-[85px] -mt-3.5 -ml-4 md:min-w-[110px] md:-mt-4 md:-ml-4'
+}
 
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState<'Tutti' | WorkCategory>('Tutti')
   const [showAll, setShowAll] = useState(false)
+  const [hoveredCategory, setHoveredCategory] = useState<string | null>(null)
+  const [hoveredAltriProgetti, setHoveredAltriProgetti] = useState(false)
 
   const filtered = useMemo(() => {
     if (selectedCategory === 'Tutti') return mockWorks
@@ -67,24 +112,49 @@ export default function Home() {
       </section>
 
       {/* WORKS */}
-      <section id="works" className="max-w-8xl mx-auto px-4 pt-8 sm:pt-12 md:pt-16 pb-16">
-        <h2 className="text-2xl md:text-4xl font-bold mb-8">I nostri lavori</h2>
+      <section id="works" className="max-w-8xl mx-auto px-4 pt-8 sm:pt-12 md:pt-16 pb-16 mt-10 mb-5">
+        <img src={inostriLavoriImg} alt="I nostri lavori" className="text-center mx-auto h-10 md:h-14" />
 
         {/* Filtri */}
-        <div className="flex flex-wrap gap-3 mb-8">
-          {categories.map(c => (
-            <button
-              key={c}
-              onClick={() => setSelectedCategory(c)}
-              className={`px-4 py-2 rounded border ${selectedCategory === c ? 'bg-white text-black' : 'border-white/40 hover:bg-white/10'}`}
-            >
-              {c}
-            </button>
-          ))}
+        <div className="flex flex-wrap gap-12 mb-8 justify-center mt-10">
+          {categories.map(c => {
+            const isSelected = selectedCategory === c
+            const isHovered = hoveredCategory === c
+            const shouldShowHover = isSelected || isHovered
+            
+            return (
+              <button
+                key={c}
+                onClick={() => setSelectedCategory(c)}
+                onMouseEnter={() => setHoveredCategory(c)}
+                onMouseLeave={() => setHoveredCategory(null)}
+                className={`p-3 transition-all duration-300 hover:scale-105 cursor-pointer`}
+              >
+                <div className="relative">
+                  {/* Immagine hover come sfondo */}
+                  <img 
+                    src={categoryHoverIcons[c as keyof typeof categoryHoverIcons]}
+                    alt={c}
+                    className={`absolute top-0 left-0 w-auto transition-all duration-300 z-0 ${
+                      categoryHoverClasses[c as keyof typeof categoryHoverClasses]
+                    } ${
+                      shouldShowHover ? 'opacity-100' : 'opacity-0'
+                    }`}
+                  />
+                  {/* Immagine originale */}
+                  <img 
+                    src={categoryIcons[c as keyof typeof categoryIcons]}
+                    alt={c}
+                    className="h-6 md:h-8 w-auto transition-all duration-300 relative z-10"
+                  />
+                </div>
+              </button>
+            )
+          })}
         </div>
 
         {/* Griglia lavori */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 mt-10">
           {displayedWorks.map((w) => (
             <Link 
               key={w.id} 
@@ -108,9 +178,15 @@ export default function Home() {
             <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mb-6"></div>
             <button
               onClick={() => setShowAll(true)}
-              className="px-8 py-3 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 rounded-full text-white font-medium transition-all duration-300 hover:scale-105 cursor-pointer"
+              onMouseEnter={() => setHoveredAltriProgetti(true)}
+              onMouseLeave={() => setHoveredAltriProgetti(false)}
+              className="transition-all duration-300 hover:scale-105 cursor-pointer"
             >
-              Altri progetti
+              <img 
+                src={hoveredAltriProgetti ? altriProgettiHoverIcon : altriProgettiIcon}
+                alt="Altri progetti"
+                className="h-8 md:h-10 w-auto transition-all duration-300"
+              />
             </button>
           </div>
         )}
@@ -137,10 +213,7 @@ export default function Home() {
         
         <div className="max-w-8xl mx-auto px-4 py-20 relative z-10">
           <div className="text-center mb-16">
-            <h3 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
-              Chi siamo
-            </h3>
-            <div className="w-24 h-1 bg-gradient-to-r from-white/60 to-transparent mx-auto"></div>
+          <img src={chiSiamoImg} alt="I nostri lavori" className="text-center mx-auto h-10 md:h-14" />
           </div>
           
           <div className="max-w-4xl mx-auto">
