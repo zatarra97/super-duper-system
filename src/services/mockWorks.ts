@@ -1,68 +1,143 @@
 import { WorkItem } from '../types/work';
 
 // Import delle immagini reali per docu_faro
-import docuFaroCover from '../Images/works/docu_faro/copertina.png';
-import docuFaroBackstage1 from '../Images/works/docu_faro/Screenshot 2025-09-15 alle 16.36.12.png';
-import docuFaroBackstage2 from '../Images/works/docu_faro/Screenshot 2025-09-15 alle 16.36.35.png';
-import docuFaroBackstage3 from '../Images/works/docu_faro/Screenshot 2025-09-15 alle 16.37.48.png';
-import docuFaroBackstage4 from '../Images/works/docu_faro/Screenshot 2025-09-15 alle 16.39.48.png';
-import docuFaroBackstage5 from '../Images/works/docu_faro/Screenshot 2025-09-15 alle 16.42.38.png';
-import docuFaroBackstage6 from '../Images/works/docu_faro/Screenshot 2025-09-15 alle 16.43.06.png';
-import docuFaroBackstage7 from '../Images/works/docu_faro/Screenshot 2025-09-15 alle 16.43.31.png';
-import docuFaroBackstage8 from '../Images/works/docu_faro/Screenshot 2025-09-15 alle 16.43.57.png';
-import docuFaroBackstage9 from '../Images/works/docu_faro/Screenshot 2025-09-15 alle 16.44.54.png';
-import docuFaroBackstage10 from '../Images/works/docu_faro/Screenshot 2025-09-15 alle 16.45.09.png';
-import docuFaroBackstage11 from '../Images/works/docu_faro/Screenshot 2025-09-15 alle 16.45.23.png';
-import docuFaroBackstage12 from '../Images/works/docu_faro/Screenshot 2025-09-15 alle 16.45.41.png';
+import docuFaroCover from '../Images/works/docu_faro/copertina.jpeg';
+import docuFaroBackstage1 from '../Images/works/docu_faro/1.png';
+import docuFaroBackstage2 from '../Images/works/docu_faro/2.png';
+import docuFaroBackstage3 from '../Images/works/docu_faro/3.png';
+import docuFaroBackstage4 from '../Images/works/docu_faro/4.png';
+import docuFaroBackstage5 from '../Images/works/docu_faro/5.png';
+import docuFaroBackstage6 from '../Images/works/docu_faro/6.png';
+import docuFaroBackstage7 from '../Images/works/docu_faro/7.png';
+import docuFaroBackstage8 from '../Images/works/docu_faro/8.png';
+import docuFaroBackstage9 from '../Images/works/docu_faro/9.png';
+import docuFaroBackstage10 from '../Images/works/docu_faro/10.png';
+import docuFaroBackstage11 from '../Images/works/docu_faro/11.png';
+import docuFaroBackstage12 from '../Images/works/docu_faro/12.png';
+import docuFaroBackstage13 from '../Images/works/docu_faro/13.png';
 
 // Import delle immagini reali per als_luise_die
-import alsLuiseCover from '../Images/works/als_luise_die/copertina.png';
+import alsLuiseCover from '../Images/works/als_luise_die/copertina.jpeg';
+import alsLuiseBackstage1 from '../Images/works/als_luise_die/1.png';
+import alsLuiseBackstage2 from '../Images/works/als_luise_die/2.png';
+import alsLuiseBackstage3 from '../Images/works/als_luise_die/3.png';
+import alsLuiseBackstage4 from '../Images/works/als_luise_die/4.png';
+import alsLuiseBackstage5 from '../Images/works/als_luise_die/5.png';
+import alsLuiseBackstage6 from '../Images/works/als_luise_die/6.png';
+import alsLuiseBackstage7 from '../Images/works/als_luise_die/7.png';
+import alsLuiseBackstage8 from '../Images/works/als_luise_die/8.png';
+import alsLuiseBackstage9 from '../Images/works/als_luise_die/9.png';
 
 // Import delle immagini reali per colle_petrito
-import collePetritoCover from '../Images/works/colle_petrito/copertina.png';
-import collePetritoBackstage1 from '../Images/works/colle_petrito/Screenshot 2025-09-15 alle 17.01.18.png';
-import collePetritoBackstage2 from '../Images/works/colle_petrito/Screenshot 2025-09-15 alle 17.01.30.png';
-import collePetritoBackstage3 from '../Images/works/colle_petrito/Screenshot 2025-09-15 alle 17.01.45.png';
-import collePetritoBackstage4 from '../Images/works/colle_petrito/Screenshot 2025-09-15 alle 17.02.35.png';
-import collePetritoBackstage5 from '../Images/works/colle_petrito/Screenshot 2025-09-15 alle 17.02.51.png';
-import collePetritoBackstage6 from '../Images/works/colle_petrito/Screenshot 2025-09-15 alle 17.03.17.png';
-import collePetritoBackstage7 from '../Images/works/colle_petrito/Screenshot 2025-09-15 alle 17.04.02.png';
+import collePetritoCover from '../Images/works/colle_petrito/copertina.jpeg';
+import collePetritoBackstage1 from '../Images/works/colle_petrito/1.png';
+import collePetritoBackstage2 from '../Images/works/colle_petrito/2.png';
+import collePetritoBackstage3 from '../Images/works/colle_petrito/3.png';
+import collePetritoBackstage4 from '../Images/works/colle_petrito/4.png';
+import collePetritoBackstage5 from '../Images/works/colle_petrito/5.png';
+import collePetritoBackstage6 from '../Images/works/colle_petrito/6.png';
+import collePetritoBackstage7 from '../Images/works/colle_petrito/7.png';
+import collePetritoBackstage8 from '../Images/works/colle_petrito/8.png';
+import collePetritoBackstage9 from '../Images/works/colle_petrito/9.png';
 
 // Import delle immagini reali per il_balcone_delle_puglie
-import balconePuglieCover from '../Images/works/il_balcone_delle_puglie/copertina.png';
-import balconePuglieBackstage1 from '../Images/works/il_balcone_delle_puglie/Screenshot 2025-09-15 alle 16.56.05.png';
-import balconePuglieBackstage2 from '../Images/works/il_balcone_delle_puglie/Screenshot 2025-09-15 alle 16.56.35.png';
-import balconePuglieBackstage3 from '../Images/works/il_balcone_delle_puglie/Screenshot 2025-09-15 alle 16.56.45.png';
-import balconePuglieBackstage4 from '../Images/works/il_balcone_delle_puglie/Screenshot 2025-09-15 alle 16.58.11.png';
-import balconePuglieBackstage5 from '../Images/works/il_balcone_delle_puglie/Screenshot 2025-09-15 alle 16.58.48.png';
-import balconePuglieBackstage6 from '../Images/works/il_balcone_delle_puglie/Screenshot 2025-09-15 alle 16.58.59.png';
-import balconePuglieBackstage7 from '../Images/works/il_balcone_delle_puglie/Screenshot 2025-09-15 alle 16.59.09.png';
-import balconePuglieBackstage8 from '../Images/works/il_balcone_delle_puglie/Screenshot 2025-09-15 alle 16.59.34.png';
+import balconePuglieCover from '../Images/works/il_balcone_delle_puglie/copertina.jpeg';
+import balconePuglieBackstage1 from '../Images/works/il_balcone_delle_puglie/1.png';
+import balconePuglieBackstage2 from '../Images/works/il_balcone_delle_puglie/2.png';
+import balconePuglieBackstage3 from '../Images/works/il_balcone_delle_puglie/3.png';
+import balconePuglieBackstage4 from '../Images/works/il_balcone_delle_puglie/4.png';
+import balconePuglieBackstage5 from '../Images/works/il_balcone_delle_puglie/5.png';
+import balconePuglieBackstage6 from '../Images/works/il_balcone_delle_puglie/6.png';
+import balconePuglieBackstage7 from '../Images/works/il_balcone_delle_puglie/7.png';
+import balconePuglieBackstage8 from '../Images/works/il_balcone_delle_puglie/8.png';
+import balconePuglieBackstage9 from '../Images/works/il_balcone_delle_puglie/9.png';
 
 // Import delle immagini reali per dream_with_me
-import dreamWithMeCover from '../Images/works/dream_with_me/copertina.png';
+import dreamWithMeCover from '../Images/works/dream_with_me/copertina.jpeg';
+import dreamWithMeBackstage1 from '../Images/works/dream_with_me/1.png';
+import dreamWithMeBackstage2 from '../Images/works/dream_with_me/2.png';
+import dreamWithMeBackstage3 from '../Images/works/dream_with_me/3.png';
+import dreamWithMeBackstage4 from '../Images/works/dream_with_me/4.png';
+import dreamWithMeBackstage5 from '../Images/works/dream_with_me/5.png';
+import dreamWithMeBackstage6 from '../Images/works/dream_with_me/6.png';
+import dreamWithMeBackstage7 from '../Images/works/dream_with_me/7.png';
 
 // Import delle immagini reali per passacaglia
-import passacagliaCover from '../Images/works/passacaglia/copertina.png';
+import passacagliaCover from '../Images/works/passacaglia/copertina.jpeg';
+import passacagliaBackstage1 from '../Images/works/passacaglia/1.png';
+import passacagliaBackstage2 from '../Images/works/passacaglia/2.png';
+import passacagliaBackstage3 from '../Images/works/passacaglia/3.png';
+import passacagliaBackstage4 from '../Images/works/passacaglia/4.png';
+import passacagliaBackstage5 from '../Images/works/passacaglia/5.png';
+import passacagliaBackstage6 from '../Images/works/passacaglia/6.png';
+import passacagliaBackstage7 from '../Images/works/passacaglia/7.png';
+import passacagliaBackstage8 from '../Images/works/passacaglia/8.png';
+import passacagliaBackstage9 from '../Images/works/passacaglia/9.png';
+import passacagliaBackstage10 from '../Images/works/passacaglia/10.png';
 
 // Import delle immagini reali per segovia
-import segoviaCover from '../Images/works/segovia/copertina.png';
+import segoviaCover from '../Images/works/segovia/copertina.jpeg';
+import segoviaBackstage1 from '../Images/works/segovia/1.png';
+import segoviaBackstage2 from '../Images/works/segovia/2.png';
+import segoviaBackstage3 from '../Images/works/segovia/3.png';
+import segoviaBackstage4 from '../Images/works/segovia/4.png';
+import segoviaBackstage5 from '../Images/works/segovia/5.png';
+import segoviaBackstage6 from '../Images/works/segovia/6.png';
+import segoviaBackstage7 from '../Images/works/segovia/7.png';
 
 // Import delle immagini reali per sevillana
-import sevillanaCover from '../Images/works/sevillana/copertina.png';
+import sevillanaCover from '../Images/works/sevillana/copertina.jpeg';
+import sevillanaBackstage1 from '../Images/works/sevillana/1.png';
+import sevillanaBackstage2 from '../Images/works/sevillana/2.png';
+import sevillanaBackstage3 from '../Images/works/sevillana/3.png';
+import sevillanaBackstage4 from '../Images/works/sevillana/4.png';
+import sevillanaBackstage5 from '../Images/works/sevillana/5.png';
+import sevillanaBackstage6 from '../Images/works/sevillana/6.png';
+import sevillanaBackstage7 from '../Images/works/sevillana/7.png';
+import sevillanaBackstage8 from '../Images/works/sevillana/8.png';
+import sevillanaBackstage9 from '../Images/works/sevillana/9.png';
+
+// Import delle immagini reali per pagina_romantica
+import paginaRomanticaCover from '../Images/works/pagina_romantica/copertina.jpeg';
+import paginaRomanticaBackstage1 from '../Images/works/pagina_romantica/1.png';
+import paginaRomanticaBackstage2 from '../Images/works/pagina_romantica/2.png';
+import paginaRomanticaBackstage3 from '../Images/works/pagina_romantica/3.png';
+import paginaRomanticaBackstage4 from '../Images/works/pagina_romantica/4.png';
+import paginaRomanticaBackstage5 from '../Images/works/pagina_romantica/5.png';
+import paginaRomanticaBackstage6 from '../Images/works/pagina_romantica/6.png';
+
+// Import delle immagini reali per hai_riso
+import haiRisoCover from '../Images/works/hai_riso/copertina.jpeg';
+import haiRisoBackstage1 from '../Images/works/hai_riso/1.png';
+import haiRisoBackstage2 from '../Images/works/hai_riso/2.png';
+import haiRisoBackstage3 from '../Images/works/hai_riso/3.png';
+import haiRisoBackstage4 from '../Images/works/hai_riso/4.png';
+import haiRisoBackstage5 from '../Images/works/hai_riso/5.png';
+import haiRisoBackstage6 from '../Images/works/hai_riso/6.png';
+import haiRisoBackstage7 from '../Images/works/hai_riso/7.png';
+import haiRisoBackstage8 from '../Images/works/hai_riso/8.png';
+import haiRisoBackstage9 from '../Images/works/hai_riso/9.png';
+import haiRisoBackstage10 from '../Images/works/hai_riso/10.png';
+import haiRisoBackstage11 from '../Images/works/hai_riso/11.png';
 
 // Import delle immagini reali per marmaid
-import marmaidCover from '../Images/works/marmaid/copertina.png';
-import marmaidBackstage1 from '../Images/works/marmaid/IMG_6233.JPG';
-import marmaidBackstage2 from '../Images/works/marmaid/IMG_6235.JPG';
-import marmaidBackstage3 from '../Images/works/marmaid/IMG_6249.JPG';
-import marmaidBackstage4 from '../Images/works/marmaid/IMG_6288.JPG';
-import marmaidBackstage5 from '../Images/works/marmaid/IMG_6376.JPG';
-import marmaidBackstage6 from '../Images/works/marmaid/IMG_6416.JPG';
-import marmaidBackstage7 from '../Images/works/marmaid/IMG_8096.jpg';
-import marmaidBackstage8 from '../Images/works/marmaid/IMG_8137.jpg';
-import marmaidBackstage9 from '../Images/works/marmaid/IMG_8190.jpg';
-import marmaidBackstage10 from '../Images/works/marmaid/IMG_8242.jpg';
+import marmaidCover from '../Images/works/marmaid/copertina.jpeg';
+import marmaidBackstage1 from '../Images/works/marmaid/1.png';
+import marmaidBackstage2 from '../Images/works/marmaid/2.jpg';
+import marmaidBackstage3 from '../Images/works/marmaid/3.jpg';
+import marmaidBackstage4 from '../Images/works/marmaid/4.jpg';
+import marmaidBackstage5 from '../Images/works/marmaid/5.jpg';
+import marmaidBackstage6 from '../Images/works/marmaid/6.png';
+import marmaidBackstage7 from '../Images/works/marmaid/7.png';
+import marmaidBackstage8 from '../Images/works/marmaid/8.png';
+import marmaidBackstage9 from '../Images/works/marmaid/9.png';
+import marmaidBackstage10 from '../Images/works/marmaid/10.png';
+import marmaidBackstage11 from '../Images/works/marmaid/11.png';
+import marmaidBackstage12 from '../Images/works/marmaid/12.png';
+import marmaidBackstage13 from '../Images/works/marmaid/13.png';
+import marmaidBackstage14 from '../Images/works/marmaid/14.png';
+import marmaidBackstage15 from '../Images/works/marmaid/15.png';
+import marmaidBackstage16 from '../Images/works/marmaid/16.png';
 
 // Immagini e video placeholder per lavori senza cartella specifica
 const IMG = (w: number, h: number) => `https://picsum.photos/${w}/${h}?random=${Math.floor(Math.random()*10000)}`;
@@ -87,7 +162,6 @@ export const mockWorks: WorkItem[] = [
       { role: 'Montaggio', name: 'Pietro Giocondo' },
     ],
     backstageImages: [
-      collePetritoCover,
       collePetritoBackstage1,
       collePetritoBackstage2,
       collePetritoBackstage3,
@@ -95,6 +169,8 @@ export const mockWorks: WorkItem[] = [
       collePetritoBackstage5,
       collePetritoBackstage6,
       collePetritoBackstage7,
+      collePetritoBackstage8,
+      collePetritoBackstage9,
     ],
   },
   {
@@ -129,6 +205,7 @@ export const mockWorks: WorkItem[] = [
       docuFaroBackstage10,
       docuFaroBackstage11,
       docuFaroBackstage12,
+      docuFaroBackstage13,
     ],
   },
   {
@@ -151,7 +228,6 @@ export const mockWorks: WorkItem[] = [
       { role: 'Montaggio', name: 'Pietro Giocondo' },
     ],
     backstageImages: [
-      balconePuglieCover,
       balconePuglieBackstage1,
       balconePuglieBackstage2,
       balconePuglieBackstage3,
@@ -160,6 +236,7 @@ export const mockWorks: WorkItem[] = [
       balconePuglieBackstage6,
       balconePuglieBackstage7,
       balconePuglieBackstage8,
+      balconePuglieBackstage9,
     ],
   },
 
@@ -185,7 +262,17 @@ export const mockWorks: WorkItem[] = [
       { role: 'Make Up & Hair Stylist', name: 'Enza Gravina' },
       { role: 'Montaggio', name: 'Pietro Giocondo' },
     ],
-    backstageImages: [alsLuiseCover],
+    backstageImages: [
+      alsLuiseBackstage1,
+      alsLuiseBackstage2,
+      alsLuiseBackstage3,
+      alsLuiseBackstage4,
+      alsLuiseBackstage5,
+      alsLuiseBackstage6,
+      alsLuiseBackstage7,
+      alsLuiseBackstage8,
+      alsLuiseBackstage9,
+    ],
   },
   {
     id: 'w5',
@@ -211,7 +298,6 @@ export const mockWorks: WorkItem[] = [
       { role: 'Montaggio', name: 'Pietro Giocondo' },
     ],
     backstageImages: [
-      marmaidCover,
       marmaidBackstage1,
       marmaidBackstage2,
       marmaidBackstage3,
@@ -222,6 +308,12 @@ export const mockWorks: WorkItem[] = [
       marmaidBackstage8,
       marmaidBackstage9,
       marmaidBackstage10,
+      marmaidBackstage11,
+      marmaidBackstage12,
+      marmaidBackstage13,
+      marmaidBackstage14,
+      marmaidBackstage15,
+      marmaidBackstage16,
     ],
   },
   {
@@ -230,7 +322,7 @@ export const mockWorks: WorkItem[] = [
     title: 'Carlotta Dalia - Carlos Pedrell: Página Romántica',
     shortDesc: 'Music video',
     category: 'Music Video',
-    thumbnailUrl: IMG(800, 500),
+    thumbnailUrl: paginaRomanticaCover,
     trailerUrl: VIDEO,
     youtubeVideoUrl: 'https://www.youtube.com/embed/EUsHzrd5uJw',
     description: 'Videoclip musicale con Carlotta Dalia per Berlin Classics.',
@@ -242,7 +334,14 @@ export const mockWorks: WorkItem[] = [
       { role: 'Fotografia', name: 'Pietro Giocondo' },
       { role: 'Montaggio', name: 'Pietro Giocondo' },
     ],
-    backstageImages: [IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800)],
+    backstageImages: [
+      paginaRomanticaBackstage1,
+      paginaRomanticaBackstage2,
+      paginaRomanticaBackstage3,
+      paginaRomanticaBackstage4,
+      paginaRomanticaBackstage5,
+      paginaRomanticaBackstage6,
+    ],
   },
   {
     id: 'w7',
@@ -262,7 +361,17 @@ export const mockWorks: WorkItem[] = [
       { role: 'Fotografia', name: 'Pietro Giocondo' },
       { role: 'Montaggio', name: 'Pietro Giocondo' },
     ],
-    backstageImages: [sevillanaCover],
+    backstageImages: [
+      sevillanaBackstage1,
+      sevillanaBackstage2,
+      sevillanaBackstage3,
+      sevillanaBackstage4,
+      sevillanaBackstage5,
+      sevillanaBackstage6,
+      sevillanaBackstage7,
+      sevillanaBackstage8,
+      sevillanaBackstage9,
+    ],
   },
   {
     id: 'w8',
@@ -282,7 +391,15 @@ export const mockWorks: WorkItem[] = [
       { role: 'Fotografia', name: 'Pietro Giocondo' },
       { role: 'Montaggio', name: 'Pietro Giocondo' },
     ],
-    backstageImages: [segoviaCover],
+    backstageImages: [
+      segoviaBackstage1,
+      segoviaBackstage2,
+      segoviaBackstage3,
+      segoviaBackstage4,
+      segoviaBackstage5,
+      segoviaBackstage6,
+      segoviaBackstage7,
+    ],
   },
   {
     id: 'w9',
@@ -302,7 +419,18 @@ export const mockWorks: WorkItem[] = [
       { role: 'Ass. fotografia', name: 'Angelo Preziusi' },
       { role: 'Montaggio', name: 'Pietro Giocondo' },
     ],
-    backstageImages: [passacagliaCover],
+    backstageImages: [
+      passacagliaBackstage1,
+      passacagliaBackstage2,
+      passacagliaBackstage3,
+      passacagliaBackstage4,
+      passacagliaBackstage5,
+      passacagliaBackstage6,
+      passacagliaBackstage7,
+      passacagliaBackstage8,
+      passacagliaBackstage9,
+      passacagliaBackstage10,
+    ],
   },
   {
     id: 'w10',
@@ -322,17 +450,25 @@ export const mockWorks: WorkItem[] = [
       { role: 'Ass. fotografia', name: 'Angelo Preziusi' },
       { role: 'Montaggio', name: 'Pietro Giocondo' },
     ],
-    backstageImages: [dreamWithMeCover],
+    backstageImages: [
+      dreamWithMeBackstage1,
+      dreamWithMeBackstage2,
+      dreamWithMeBackstage3,
+      dreamWithMeBackstage4,
+      dreamWithMeBackstage5,
+      dreamWithMeBackstage6,
+      dreamWithMeBackstage7,
+    ],
   },
 
   // Cortometraggio
   {
     id: 'w11',
-    slug: 'hai-riso-cortometraggio',
+    slug: 'hai-riso',
     title: 'Hai riso?',
     shortDesc: 'Cortometraggio',
     category: 'Altri',
-    thumbnailUrl: IMG(800, 500),
+    thumbnailUrl: haiRisoCover,
     coverVideoUrl: VIDEO,
     youtubeVideoUrl: 'https://www.youtube.com/embed/SnBrmkG99Lk',
     description: 'Cortometraggio con Giuliana Stancarone e Francesco Volpe.',
@@ -350,7 +486,19 @@ export const mockWorks: WorkItem[] = [
       { role: 'Montaggio', name: 'Pietro Giocondo' },
       { role: 'Backstage', name: 'Rebecca Superbo' },
     ],
-    backstageImages: [IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800)],
+    backstageImages: [
+      haiRisoBackstage1,
+      haiRisoBackstage2,
+      haiRisoBackstage3,
+      haiRisoBackstage4,
+      haiRisoBackstage5,
+      haiRisoBackstage6,
+      haiRisoBackstage7,
+      haiRisoBackstage8,
+      haiRisoBackstage9,
+      haiRisoBackstage10,
+      haiRisoBackstage11,
+    ],
   },
 ];
 
