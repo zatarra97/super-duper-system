@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Header from '../../Components/Header'
 import Contact from '../../Components/Contact'
 import FixedInstagram from '../../Components/FixedInstagram'
+import ClientsCarousel from '../../Components/ClientsCarousel'
 import { mockWorks } from '../../services/mockWorks'
 import { WorkCategory } from '../../types/work'
 import Footer from '../../Components/Footer'
@@ -175,6 +176,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* CLIENTS CAROUSEL */}
+      <ClientsCarousel />
 
       <Contact />
 
