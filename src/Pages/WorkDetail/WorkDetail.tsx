@@ -73,7 +73,7 @@ export default function WorkDetail() {
       {/* Backstage */}
       <section>
         <div className="px-4 pb-12">
-          <h3 className="max-w-8xl mx-auto font-semibold mb-6 text-xl md:text-2xl">Backstage</h3>
+          <h3 className="max-w-8xl mx-auto font-semibold mb-6 text-xl md:text-2xl">Foto dal set</h3>
           <BackstageCarousel 
             images={work.backstageImages}
             videos={work.backstageVideos || []}

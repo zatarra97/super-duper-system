@@ -103,7 +103,7 @@ export default function ClientsCarousel() {
         }
         
         .animate-scroll-infinite {
-          animation: scroll-infinite 18s linear infinite;
+          animation: scroll-infinite 12s linear infinite;
         }
         
         .animate-scroll-infinite:hover {
