@@ -1,5 +1,11 @@
 import { useState, useEffect } from 'react'
 
+// Import dei loghi dei clienti
+import berlinClassicLogo from '../Images/clients/berlin_classic.png'
+import collePetritoLogo from '../Images/clients/colle_petrito.png'
+import comuneMinervinoLogo from '../Images/clients/comune_minervino.png'
+import edilVerdeLogo from '../Images/clients/edil_verde.png'
+
 interface Client {
   id: string
   name: string
@@ -10,22 +16,22 @@ const clients: Client[] = [
   {
     id: 'berlin-classic',
     name: 'Berlin Classic',
-    logo: '/src/Images/clients/berlin_classic.png'
+    logo: berlinClassicLogo
   },
   {
     id: 'colle-petrito',
     name: 'Colle Petrito',
-    logo: '/src/Images/clients/colle_petrito.png'
+    logo: collePetritoLogo
   },
   {
     id: 'comune-minervino',
     name: 'Comune Minervino',
-    logo: '/src/Images/clients/comune_minervino.png'
+    logo: comuneMinervinoLogo
   },
   {
     id: 'edil-verde',
     name: 'Edil Verde',
-    logo: '/src/Images/clients/edil_verde.png'
+    logo: edilVerdeLogo
   }
 ]
 
@@ -75,7 +81,7 @@ export default function ClientsCarousel() {
                   <img 
                     src={client.logo} 
                     alt={client.name}
-                    className={`max-h-22 md:max-h-20 lg:max-h-24 xl:max-h-32 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300 ${
+                    className={`max-h-22 md:max-h-24 lg:max-h-28 xl:max-h-32 w-auto object-contain transition-opacity duration-300 ${
                       client.id === 'berlin-classic' ? 'filter brightness-0 invert' : ''
                     }`}
                   />

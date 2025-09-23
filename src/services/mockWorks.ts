@@ -1,6 +1,70 @@
 import { WorkItem } from '../types/work';
 
-// Immagini e video placeholder
+// Import delle immagini reali per docu_faro
+import docuFaroCover from '../Images/works/docu_faro/copertina.png';
+import docuFaroBackstage1 from '../Images/works/docu_faro/Screenshot 2025-09-15 alle 16.36.12.png';
+import docuFaroBackstage2 from '../Images/works/docu_faro/Screenshot 2025-09-15 alle 16.36.35.png';
+import docuFaroBackstage3 from '../Images/works/docu_faro/Screenshot 2025-09-15 alle 16.37.48.png';
+import docuFaroBackstage4 from '../Images/works/docu_faro/Screenshot 2025-09-15 alle 16.39.48.png';
+import docuFaroBackstage5 from '../Images/works/docu_faro/Screenshot 2025-09-15 alle 16.42.38.png';
+import docuFaroBackstage6 from '../Images/works/docu_faro/Screenshot 2025-09-15 alle 16.43.06.png';
+import docuFaroBackstage7 from '../Images/works/docu_faro/Screenshot 2025-09-15 alle 16.43.31.png';
+import docuFaroBackstage8 from '../Images/works/docu_faro/Screenshot 2025-09-15 alle 16.43.57.png';
+import docuFaroBackstage9 from '../Images/works/docu_faro/Screenshot 2025-09-15 alle 16.44.54.png';
+import docuFaroBackstage10 from '../Images/works/docu_faro/Screenshot 2025-09-15 alle 16.45.09.png';
+import docuFaroBackstage11 from '../Images/works/docu_faro/Screenshot 2025-09-15 alle 16.45.23.png';
+import docuFaroBackstage12 from '../Images/works/docu_faro/Screenshot 2025-09-15 alle 16.45.41.png';
+
+// Import delle immagini reali per als_luise_die
+import alsLuiseCover from '../Images/works/als_luise_die/copertina.png';
+
+// Import delle immagini reali per colle_petrito
+import collePetritoCover from '../Images/works/colle_petrito/copertina.png';
+import collePetritoBackstage1 from '../Images/works/colle_petrito/Screenshot 2025-09-15 alle 17.01.18.png';
+import collePetritoBackstage2 from '../Images/works/colle_petrito/Screenshot 2025-09-15 alle 17.01.30.png';
+import collePetritoBackstage3 from '../Images/works/colle_petrito/Screenshot 2025-09-15 alle 17.01.45.png';
+import collePetritoBackstage4 from '../Images/works/colle_petrito/Screenshot 2025-09-15 alle 17.02.35.png';
+import collePetritoBackstage5 from '../Images/works/colle_petrito/Screenshot 2025-09-15 alle 17.02.51.png';
+import collePetritoBackstage6 from '../Images/works/colle_petrito/Screenshot 2025-09-15 alle 17.03.17.png';
+import collePetritoBackstage7 from '../Images/works/colle_petrito/Screenshot 2025-09-15 alle 17.04.02.png';
+
+// Import delle immagini reali per il_balcone_delle_puglie
+import balconePuglieCover from '../Images/works/il_balcone_delle_puglie/copertina.png';
+import balconePuglieBackstage1 from '../Images/works/il_balcone_delle_puglie/Screenshot 2025-09-15 alle 16.56.05.png';
+import balconePuglieBackstage2 from '../Images/works/il_balcone_delle_puglie/Screenshot 2025-09-15 alle 16.56.35.png';
+import balconePuglieBackstage3 from '../Images/works/il_balcone_delle_puglie/Screenshot 2025-09-15 alle 16.56.45.png';
+import balconePuglieBackstage4 from '../Images/works/il_balcone_delle_puglie/Screenshot 2025-09-15 alle 16.58.11.png';
+import balconePuglieBackstage5 from '../Images/works/il_balcone_delle_puglie/Screenshot 2025-09-15 alle 16.58.48.png';
+import balconePuglieBackstage6 from '../Images/works/il_balcone_delle_puglie/Screenshot 2025-09-15 alle 16.58.59.png';
+import balconePuglieBackstage7 from '../Images/works/il_balcone_delle_puglie/Screenshot 2025-09-15 alle 16.59.09.png';
+import balconePuglieBackstage8 from '../Images/works/il_balcone_delle_puglie/Screenshot 2025-09-15 alle 16.59.34.png';
+
+// Import delle immagini reali per dream_with_me
+import dreamWithMeCover from '../Images/works/dream_with_me/copertina.png';
+
+// Import delle immagini reali per passacaglia
+import passacagliaCover from '../Images/works/passacaglia/copertina.png';
+
+// Import delle immagini reali per segovia
+import segoviaCover from '../Images/works/segovia/copertina.png';
+
+// Import delle immagini reali per sevillana
+import sevillanaCover from '../Images/works/sevillana/copertina.png';
+
+// Import delle immagini reali per marmaid
+import marmaidCover from '../Images/works/marmaid/copertina.png';
+import marmaidBackstage1 from '../Images/works/marmaid/IMG_6233.JPG';
+import marmaidBackstage2 from '../Images/works/marmaid/IMG_6235.JPG';
+import marmaidBackstage3 from '../Images/works/marmaid/IMG_6249.JPG';
+import marmaidBackstage4 from '../Images/works/marmaid/IMG_6288.JPG';
+import marmaidBackstage5 from '../Images/works/marmaid/IMG_6376.JPG';
+import marmaidBackstage6 from '../Images/works/marmaid/IMG_6416.JPG';
+import marmaidBackstage7 from '../Images/works/marmaid/IMG_8096.jpg';
+import marmaidBackstage8 from '../Images/works/marmaid/IMG_8137.jpg';
+import marmaidBackstage9 from '../Images/works/marmaid/IMG_8190.jpg';
+import marmaidBackstage10 from '../Images/works/marmaid/IMG_8242.jpg';
+
+// Immagini e video placeholder per lavori senza cartella specifica
 const IMG = (w: number, h: number) => `https://picsum.photos/${w}/${h}?random=${Math.floor(Math.random()*10000)}`;
 const VIDEO = 'https://www.w3schools.com/html/mov_bbb.mp4';
 
@@ -12,7 +76,7 @@ export const mockWorks: WorkItem[] = [
     title: 'Cantina Colle Petrito: XII - Dodicesimo',
     shortDesc: 'Commercial',
     category: 'Branded',
-    thumbnailUrl: IMG(800, 500),
+    thumbnailUrl: collePetritoCover,
     coverVideoUrl: VIDEO,
     youtubeVideoUrl: 'https://www.youtube.com/embed/yzak_OmhUJI',
     description: 'Commercial per Cantina Colle Petrito che celebra il dodicesimo anniversario.',
@@ -22,7 +86,16 @@ export const mockWorks: WorkItem[] = [
       { role: 'Fotografia', name: 'Pietro Giocondo' },
       { role: 'Montaggio', name: 'Pietro Giocondo' },
     ],
-    backstageImages: [IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800)],
+    backstageImages: [
+      collePetritoCover,
+      collePetritoBackstage1,
+      collePetritoBackstage2,
+      collePetritoBackstage3,
+      collePetritoBackstage4,
+      collePetritoBackstage5,
+      collePetritoBackstage6,
+      collePetritoBackstage7,
+    ],
   },
   {
     id: 'w2',
@@ -30,7 +103,7 @@ export const mockWorks: WorkItem[] = [
     title: 'Luce di memoria: restauro del Faro di Minervino Murge',
     shortDesc: 'Docufilm commerciale',
     category: 'Branded',
-    thumbnailUrl: IMG(800, 500),
+    thumbnailUrl: docuFaroCover,
     coverVideoUrl: VIDEO,
     youtubeVideoUrl: 'https://www.youtube.com/embed/OWUICnad1mg',
     description: 'Docufilm commerciale sul restauro del Faro di Minervino Murge.',
@@ -43,7 +116,20 @@ export const mockWorks: WorkItem[] = [
       { role: 'Ass. fotografia', name: 'Angelo Preziusi' },
       { role: 'Montaggio', name: 'Pietro Giocondo' },
     ],
-    backstageImages: [IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800)],
+    backstageImages: [
+      docuFaroBackstage1,
+      docuFaroBackstage2,
+      docuFaroBackstage3,
+      docuFaroBackstage4,
+      docuFaroBackstage5,
+      docuFaroBackstage6,
+      docuFaroBackstage7,
+      docuFaroBackstage8,
+      docuFaroBackstage9,
+      docuFaroBackstage10,
+      docuFaroBackstage11,
+      docuFaroBackstage12,
+    ],
   },
   {
     id: 'w3',
@@ -51,7 +137,7 @@ export const mockWorks: WorkItem[] = [
     title: 'Minervino Murge: il balcone delle Puglie',
     shortDesc: 'Commercial',
     category: 'Branded',
-    thumbnailUrl: IMG(800, 500),
+    thumbnailUrl: balconePuglieCover,
     coverVideoUrl: VIDEO,
     youtubeVideoUrl: 'https://www.youtube.com/embed/m5akb4C_q4E',
     description: 'Commercial per il Comune di Minervino Murge che mostra la bellezza del territorio.',
@@ -64,7 +150,17 @@ export const mockWorks: WorkItem[] = [
       { role: 'Ass. fotografia', name: 'Angelo Preziusi' },
       { role: 'Montaggio', name: 'Pietro Giocondo' },
     ],
-    backstageImages: [IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800)],
+    backstageImages: [
+      balconePuglieCover,
+      balconePuglieBackstage1,
+      balconePuglieBackstage2,
+      balconePuglieBackstage3,
+      balconePuglieBackstage4,
+      balconePuglieBackstage5,
+      balconePuglieBackstage6,
+      balconePuglieBackstage7,
+      balconePuglieBackstage8,
+    ],
   },
 
   // Music Videos
@@ -74,7 +170,7 @@ export const mockWorks: WorkItem[] = [
     title: 'Nicolò Balducci & Anna Paradiso - Als Luise die Briefe… W. A. Mozart',
     shortDesc: 'Music video',
     category: 'Music Video',
-    thumbnailUrl: IMG(800, 500),
+    thumbnailUrl: alsLuiseCover,
     trailerUrl: VIDEO,
     youtubeVideoUrl: 'https://www.youtube.com/embed/_bTTqsEO9eA',
     description: 'Videoclip musicale con Nicolò Balducci e Anna Paradiso per BIS Records.',
@@ -89,7 +185,7 @@ export const mockWorks: WorkItem[] = [
       { role: 'Make Up & Hair Stylist', name: 'Enza Gravina' },
       { role: 'Montaggio', name: 'Pietro Giocondo' },
     ],
-    backstageImages: [IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800)],
+    backstageImages: [alsLuiseCover],
   },
   {
     id: 'w5',
@@ -97,7 +193,7 @@ export const mockWorks: WorkItem[] = [
     title: 'Nicolò Balducci & Anna Paradiso - The Mermaid\'s Song, Haydn',
     shortDesc: 'Music video',
     category: 'Music Video',
-    thumbnailUrl: IMG(800, 500),
+    thumbnailUrl: marmaidCover,
     trailerUrl: VIDEO,
     youtubeVideoUrl: 'https://www.youtube.com/embed/TCzjQGkDkEM',
     description: 'Videoclip musicale con atmosfere marine per BIS Records.',
@@ -114,7 +210,19 @@ export const mockWorks: WorkItem[] = [
       { role: 'Mermaid Hair Stylist', name: 'Beatrice Cicchelli' },
       { role: 'Montaggio', name: 'Pietro Giocondo' },
     ],
-    backstageImages: [IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800)],
+    backstageImages: [
+      marmaidCover,
+      marmaidBackstage1,
+      marmaidBackstage2,
+      marmaidBackstage3,
+      marmaidBackstage4,
+      marmaidBackstage5,
+      marmaidBackstage6,
+      marmaidBackstage7,
+      marmaidBackstage8,
+      marmaidBackstage9,
+      marmaidBackstage10,
+    ],
   },
   {
     id: 'w6',
@@ -142,7 +250,7 @@ export const mockWorks: WorkItem[] = [
     title: 'Carlotta Dalia - Joaquin Turina: Fantasia Sevillana',
     shortDesc: 'Music video',
     category: 'Music Video',
-    thumbnailUrl: IMG(800, 500),
+    thumbnailUrl: sevillanaCover,
     trailerUrl: VIDEO,
     youtubeVideoUrl: 'https://www.youtube.com/embed/qXsjmzU6ZbM',
     description: 'Videoclip musicale con Carlotta Dalia per Berlin Classics.',
@@ -154,7 +262,7 @@ export const mockWorks: WorkItem[] = [
       { role: 'Fotografia', name: 'Pietro Giocondo' },
       { role: 'Montaggio', name: 'Pietro Giocondo' },
     ],
-    backstageImages: [IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800)],
+    backstageImages: [sevillanaCover],
   },
   {
     id: 'w8',
@@ -162,7 +270,7 @@ export const mockWorks: WorkItem[] = [
     title: 'Carlotta Dalia - Andrés Segovia: 5 Anecdotas: 1. Allegretto',
     shortDesc: 'Music video',
     category: 'Music Video',
-    thumbnailUrl: IMG(800, 500),
+    thumbnailUrl: segoviaCover,
     trailerUrl: VIDEO,
     youtubeVideoUrl: 'https://www.youtube.com/embed/3u_yb6TbSaM',
     description: 'Videoclip musicale con Carlotta Dalia per Berlin Classics.',
@@ -174,7 +282,7 @@ export const mockWorks: WorkItem[] = [
       { role: 'Fotografia', name: 'Pietro Giocondo' },
       { role: 'Montaggio', name: 'Pietro Giocondo' },
     ],
-    backstageImages: [IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800)],
+    backstageImages: [segoviaCover],
   },
   {
     id: 'w9',
@@ -182,7 +290,7 @@ export const mockWorks: WorkItem[] = [
     title: 'Carlotta Dalia & Nicolò Balducci perform "Passacaglia della Vita" by Stefano Landi',
     shortDesc: 'Music video',
     category: 'Music Video',
-    thumbnailUrl: IMG(800, 500),
+    thumbnailUrl: passacagliaCover,
     trailerUrl: VIDEO,
     youtubeVideoUrl: 'https://www.youtube.com/embed/1BaNKs978cI',
     description: 'Videoclip musicale con Carlotta Dalia e Nicolò Balducci.',
@@ -194,7 +302,7 @@ export const mockWorks: WorkItem[] = [
       { role: 'Ass. fotografia', name: 'Angelo Preziusi' },
       { role: 'Montaggio', name: 'Pietro Giocondo' },
     ],
-    backstageImages: [IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800)],
+    backstageImages: [passacagliaCover],
   },
   {
     id: 'w10',
@@ -202,7 +310,7 @@ export const mockWorks: WorkItem[] = [
     title: 'Carlotta Dalia & Nicolò Balducci perform "Dream With Me" by Leonard Bernstein',
     shortDesc: 'Music video',
     category: 'Music Video',
-    thumbnailUrl: IMG(800, 500),
+    thumbnailUrl: dreamWithMeCover,
     trailerUrl: VIDEO,
     youtubeVideoUrl: 'https://www.youtube.com/embed/h0J2fFIAudk',
     description: 'Videoclip musicale con Carlotta Dalia e Nicolò Balducci.',
@@ -214,7 +322,7 @@ export const mockWorks: WorkItem[] = [
       { role: 'Ass. fotografia', name: 'Angelo Preziusi' },
       { role: 'Montaggio', name: 'Pietro Giocondo' },
     ],
-    backstageImages: [IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800), IMG(1200, 800)],
+    backstageImages: [dreamWithMeCover],
   },
 
   // Cortometraggio
