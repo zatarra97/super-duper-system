@@ -32,7 +32,7 @@ export const mockWorks: WorkItem[] = [
     category: 'Branded',
     thumbnailUrl: IMG(800, 500),
     coverVideoUrl: VIDEO,
-    youtubeVideoUrl: 'https://www.youtube.com/embed/B93buytNiIg',
+    youtubeVideoUrl: 'https://www.youtube.com/embed/OWUICnad1mg',
     description: 'Docufilm commerciale sul restauro del Faro di Minervino Murge.',
     crew: [
       { role: 'Cliente', name: 'EdilVerde SRL' },
@@ -53,7 +53,7 @@ export const mockWorks: WorkItem[] = [
     category: 'Branded',
     thumbnailUrl: IMG(800, 500),
     coverVideoUrl: VIDEO,
-    youtubeVideoUrl: 'https://www.youtube.com/embed/3FP-rOL_xj0',
+    youtubeVideoUrl: 'https://www.youtube.com/embed/m5akb4C_q4E',
     description: 'Commercial per il Comune di Minervino Murge che mostra la bellezza del territorio.',
     crew: [
       { role: 'Cliente', name: 'Comune di Minervino Murge' },
@@ -99,7 +99,7 @@ export const mockWorks: WorkItem[] = [
     category: 'Music Video',
     thumbnailUrl: IMG(800, 500),
     trailerUrl: VIDEO,
-    youtubeVideoUrl: 'https://www.youtube.com/embed/1yVRtyAyNeM',
+    youtubeVideoUrl: 'https://www.youtube.com/embed/TCzjQGkDkEM',
     description: 'Videoclip musicale con atmosfere marine per BIS Records.',
     crew: [
       { role: 'Con', name: 'Nicolò Balducci, Francesco Volpe, Mariacristina Santomauro' },
@@ -226,7 +226,7 @@ export const mockWorks: WorkItem[] = [
     category: 'Altri',
     thumbnailUrl: IMG(800, 500),
     coverVideoUrl: VIDEO,
-    youtubeVideoUrl: 'https://www.youtube.com/embed/6dFY1x05fZM',
+    youtubeVideoUrl: 'https://www.youtube.com/embed/SnBrmkG99Lk',
     description: 'Cortometraggio con Giuliana Stancarone e Francesco Volpe.',
     crew: [
       { role: 'Con', name: 'Giuliana Stancarone, Francesco Volpe' },
