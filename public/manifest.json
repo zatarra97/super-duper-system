@@ -1,0 +1,36 @@
+{
+  "name": "Bekboard Studio - Produzione Video Musicali e Eventi Live",
+  "short_name": "Bekboard Studio",
+  "description": "Studio di produzione video specializzato in videoclip musicali, eventi live, documentari aziendali, cortometraggi e pubblicità",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "it",
+  "categories": ["entertainment", "business", "photography"],
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.png", 
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/src/Images/works/colle_petrito/copertina.jpeg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "Portfolio Bekboard Studio"
+    }
+  ]
+}
