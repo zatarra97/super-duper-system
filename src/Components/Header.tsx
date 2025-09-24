@@ -115,7 +115,11 @@ export default function Header({}: HeaderProps) {
         <div className="mx-auto px-4 py-4 flex items-center justify-between">
           <Link to="/" className="pointer-events-auto">
             <div className="text-white font-bold tracking-widest text-2xl md:pt-10 md:pl-8 rounded capitalize">
-              <img src={logo} alt="Bekboard Studio" className="h-18 md:h-[110px]" />
+              <img
+                src={logo}
+                alt="Bekboard Studio"
+                className={`h-18 md:${showBackground ? 'h-[100px]' : 'h-[110px]'} transition-all duration-300`}
+              />
             </div>
           </Link>
 

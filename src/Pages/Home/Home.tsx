@@ -49,11 +49,11 @@ const categoryHoverIcons: Record<'Tutti' | 'Branded' | 'Music Video' | 'Eventi' 
 
 // Mappa delle classi personalizzate per le immagini hover
 const categoryHoverClasses: Record<'Tutti' | 'Branded' | 'Music Video' | 'Eventi' | 'Altri', string> = {
-  'Tutti': 'min-w-[85px] -mt-4 -ml-3 md:min-w-[120px] md:-mt-6 md:-ml-4',
-  'Branded': 'min-w-[120px] -mt-5.5 -ml-3 md:min-w-[160px] md:-mt-7.5 md:-ml-4',
-  'Music Video': 'min-w-[160px] -mt-6.5 -ml-2 md:min-w-[210px] md:-mt-9 md:-ml-3',
-  'Eventi': 'min-w-[95px] -mt-4.5 -ml-3 md:min-w-[120px] md:-mt-6 md:-ml-3',
-  'Altri': 'min-w-[85px] -mt-3.5 -ml-4 md:min-w-[110px] md:-mt-4 md:-ml-4'
+  'Tutti': 'min-w-[65px] -mt-3 -ml-3 md:min-w-[90px] md:-mt-4.5 md:-ml-4',
+  'Branded': 'min-w-[85px] -mt-4 -ml-3 md:min-w-[120px] md:-mt-6 md:-ml-3',
+  'Music Video': 'min-w-[120px] -mt-5 -ml-3 md:min-w-[160px] md:-mt-7 md:-ml-2',
+  'Eventi': 'min-w-[70px] -mt-3.5 -ml-3 md:min-w-[95px] md:-mt-4.5 md:-ml-3',
+  'Altri': 'min-w-[65px] -mt-3 -ml-4 md:min-w-[85px] md:-mt-3.5 md:-ml-4'
 }
 
 export default function Home() {
@@ -112,11 +112,11 @@ export default function Home() {
       </section>
 
       {/* WORKS */}
-      <section id="works" className="max-w-8xl mx-auto px-4 pt-8 sm:pt-12 md:pt-16 pb-16 mt-10 mb-5">
+      <section id="works" className="max-w-8xl mx-auto px-4 pt-8 sm:pt-12 md:pt-16 pb-16 mt-10 mb-3">
         <img src={inostriLavoriImg} alt="I nostri lavori" className="text-center mx-auto h-10 md:h-14" />
 
         {/* Filtri */}
-        <div className="flex flex-wrap gap-12 mb-8 justify-center mt-10">
+        <div className="flex flex-wrap gap-12 mb-8 justify-center mt-7">
           {categories.map(c => {
             const isSelected = selectedCategory === c
             const isHovered = hoveredCategory === c
@@ -145,7 +145,7 @@ export default function Home() {
                   <img 
                     src={categoryIcons[c as keyof typeof categoryIcons]}
                     alt={c}
-                    className="h-6 md:h-8 w-auto transition-all duration-300 relative z-10"
+                    className="h-4 md:h-6 w-auto transition-all duration-300 relative z-10"
                   />
                 </div>
               </button>
