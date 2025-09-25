@@ -2,7 +2,7 @@ import instagramIcon from '../Images/instagram.svg'
 
 export default function FixedInstagram() {
   const handleInstagramClick = () => {
-    window.open('https://instagram.com', '_blank')
+    window.open('https://www.instagram.com/bekboardstudio?igsh=YmYwajd4bmlieWp6&utm_source=qr', '_blank')
   }
 
   return (
