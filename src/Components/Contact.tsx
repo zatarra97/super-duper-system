@@ -23,9 +23,9 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="justify-center md:pt-40 md:text-xl text-lg max-w-[600px]">
+        <div className="justify-center md:pt-40 md:text-xl text-lg max-w-[580px] ml-auto">
           <p className="font-basic-light text-white/90 md:leading-11 leading-8 md:text-right">
-          <span className="md:text-6xl text-4xl font-basic-italic">Psss!</span> Lavori nel settore dell'audiovisivo? Che tu viva di cavi aggrovigliati, luci smarmellate, trucchi sbavanti o export notturni, scrivici a <a className="font-tomarik-introvert text-primary hover:underline" href="mailto:collab@bekboard.it">collab@bekboard.it!</a>
+          <span className="md:text-6xl text-4xl font-basic-italic">Psss!</span> Lavori nel settore dell'audiovisivo? <br/>Che tu viva di cavi aggrovigliati, luci smarmellate, trucchi sbavanti o export notturni, scrivici a <a className="font-tomarik-introvert text-primary hover:underline" href="mailto:collab@bekboard.it">collab@bekboard.it!</a>
           <br /><br />
           Siamo sempre alla ricerca di nuove figure professionali valide con cui collaborare, perché alla fine si sa che in realtà i cavi non si aggrovigliano mai da soli.
           </p>
