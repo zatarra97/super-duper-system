@@ -11,7 +11,7 @@ export default function FixedInstagram() {
   }
 
   return (
-    <div className="fixed bottom-8 right-2 md:right-11 z-40 flex flex-row gap-3">
+    <div className="fixed bottom-8 right-4 md:right-11 z-40 flex flex-row md:gap-3 gap-1">
       {/* Instagram */}
       <button
         onClick={handleInstagramClick}

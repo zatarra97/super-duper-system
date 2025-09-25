@@ -118,7 +118,7 @@ export default function Header({}: HeaderProps) {
               <img
                 src={logo}
                 alt="Bekboard Studio"
-                className={`h-18 md:${showBackground ? 'h-[100px] -mt-8' : 'h-[110px]'} transition-all duration-300`}
+                className={`h-18 md:${showBackground ? 'h-[100px] md:-mt-8' : 'h-[110px]'} transition-all duration-300`}
               />
             </div>
           </Link>
@@ -160,7 +160,7 @@ export default function Header({}: HeaderProps) {
               className="text-white md:px-8 rounded transition-all duration-300 cursor-pointer"
               onClick={() => setMenuOpen(v => !v)}
             >
-              <img src={burgerIcon} className={`${showBackground ? "h-8 md:h-[25px] " : "h-8 md:h-[35px] mt-6"}`} />
+              <img src={burgerIcon} className={`${showBackground ? "h-5 md:h-[25px] -mt-2 md:mt-0" : "h-5 md:h-[35px] md:mt-6 -mt-2"}`} />
             </button>
           </div>
         </div>

@@ -81,7 +81,7 @@
 /* Classi utility per Tomarik-Introvert */
 .font-tomarik-introvert {
   font-family: var(--font-family-tomarik-introvert);
-  font-size: 23px;
+  @apply text-[20px] md:text-[23px];
 }
 
 /* Classi utility per BasicSans */
@@ -117,7 +117,7 @@
 
 .section-subtitle {
   font-family: var(--font-family-tomarik);
-  @apply md:text-[45px] text-4xl leading-none tracking-[0.03em] uppercase text-center;
+  @apply md:text-[45px] text-2xl leading-none tracking-[0.03em] uppercase text-center;
 }
 
 
