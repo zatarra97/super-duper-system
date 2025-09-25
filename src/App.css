@@ -120,6 +120,11 @@
   @apply md:text-[45px] text-2xl leading-none tracking-[0.03em] uppercase text-center;
 }
 
+.header-option {
+  font-family: var(--font-family-tomarik);
+  @apply md:text-[35px] text-4xl leading-none tracking-[0.03em] uppercase text-center;
+}
+
 
 .btn {
   @apply px-6 py-2 bg-white hover:bg-white/80 text-black font-semibold rounded-full transition-colors cursor-pointer;

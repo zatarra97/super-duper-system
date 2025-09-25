@@ -5,11 +5,11 @@ export default function Contact() {
       <div className="grid md:grid-cols-2 gap-8 justify-center mt-5">
         
         <div className="">
-          <p className="text-2xl md:text-[40px] font-basic-bold font-semibold  text-white mt-2 text-center md:text-left">
+          <p className="text-2xl md:text-[40px] font-basic-bold font-semibold  text-white mt-2 text-left">
             Raccontaci la tua idea!
           </p>
 
-          <p className="font-basic-light text-white/90 text-xl leading-10 mt-7 text-center md:text-left">
+          <p className="font-basic-light text-white/90 md:text-xl text-lg leading-10 mt-7 text-left md:text-left">
             <a className="hover:underline hover:text-white" href="mailto:info@bekboard.it">info@bekboard.it</a><br/>
 
             <a className="hover:underline hover:text-white" href="mailto:collab@bekboard.it">collab@bekboard.it</a><br/><br/>

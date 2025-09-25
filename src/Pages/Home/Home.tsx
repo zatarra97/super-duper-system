@@ -49,11 +49,11 @@ const categoryHoverIcons: Record<'Tutti' | 'Branded' | 'Music Video' | 'Eventi' 
 
 // Mappa delle classi personalizzate per le immagini hover
 const categoryHoverClasses: Record<'Tutti' | 'Branded' | 'Music Video' | 'Eventi' | 'Altri', string> = {
-  'Tutti': 'min-w-[65px] -mt-3 -ml-3 md:min-w-[90px] md:-mt-4.5 md:-ml-4',
-  'Branded': 'min-w-[85px] -mt-4 -ml-3 md:min-w-[120px] md:-mt-6 md:-ml-3',
-  'Music Video': 'min-w-[120px] -mt-5 -ml-3 md:min-w-[160px] md:-mt-7 md:-ml-2',
-  'Eventi': 'min-w-[70px] -mt-3.5 -ml-3 md:min-w-[95px] md:-mt-4.5 md:-ml-3',
-  'Altri': 'min-w-[65px] -mt-3 -ml-4 md:min-w-[85px] md:-mt-3.5 md:-ml-4'
+  'Tutti': 'min-w-[65px] -mt-2 -ml-3 md:min-w-[80px] md:-mt-2.5 md:-ml-4',
+  'Branded': 'min-w-[85px] -mt-2.5 -ml-3 md:min-w-[100px] md:-mt-3.5 md:-ml-3',
+  'Music Video': 'min-w-[110px] -mt-3.5 -ml-3 md:min-w-[135px] md:-mt-4.5 md:-ml-3.5',
+  'Eventi': 'min-w-[70px] -mt-2 -ml-3 md:min-w-[80px] md:-mt-2.5 md:-ml-3',
+  'Altri': 'min-w-[65px] -mt-1.5 -ml-4 md:min-w-[75px] md:-mt-2 md:-ml-4'
 }
 
 export default function Home() {
@@ -142,7 +142,7 @@ export default function Home() {
                     }`}
                   />
                   {/* Immagine originale */}
-                  <p className="font-tomarik text-xl md:text-2xl">{c}</p>
+                  <p className="font-tomarik text-xl md:text-2xl relative z-30">{c}</p>
                 </div>
               </button>
             )

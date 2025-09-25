@@ -7,9 +7,6 @@ import logo from '../Images/logo.svg'
 import burgerIcon from '../Images/burgerIcon.svg'
 import headerHoverShort from '../Images/header_hover_short.svg'
 import headerHoverLong from '../Images/header_hover_long.svg'
-import lavoriIcon from '../Images/lavori_header.svg'
-import chiSiamoIcon from '../Images/chi_siamo_header.svg'
-import contattiIcon from '../Images/contatti_header.svg'
 
 interface HeaderProps {}
 
@@ -54,10 +51,16 @@ export default function Header({}: HeaderProps) {
   const handleNavigation = (section: string) => {
     setMenuOpen(false)
     if (location.pathname === '/') {
-      // Se siamo già sulla homepage, scrolla alla sezione
+      // Se siamo già sulla homepage, scrolla alla sezione con offset
       const element = document.getElementById(section)
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' })
+        const elementPosition = element.offsetTop
+        const offsetPosition = elementPosition - 100 // 40px di margine dall'alto
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        })
       }
     } else {
       // Se siamo su un'altra pagina, naviga alla homepage con hash
@@ -73,7 +76,13 @@ export default function Header({}: HeaderProps) {
         setTimeout(() => {
           const element = document.getElementById(hash)
           if (element) {
-            element.scrollIntoView({ behavior: 'smooth' })
+            const elementPosition = element.offsetTop
+            const offsetPosition = elementPosition - 100 // 40px di margine dall'alto
+            
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            })
           }
         }, 100) // Piccolo delay per assicurarsi che la pagina sia caricata
       }
@@ -125,32 +134,32 @@ export default function Header({}: HeaderProps) {
 
           <div className="flex items-center gap-x-4 pointer-events-auto">
             {/* Menu items desktop - nascosti di default */}
-            <div className={`hidden md:flex items-center space-x-16 pr-16 transition-all duration-300 ${menuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4 pointer-events-none'}`}>
+            <div className={`hidden md:flex items-center space-x-16 pr-16 transition-all duration-300 ${menuOpen ? 'opacity-100 translate-x-0' + (showBackground ? ' mt-0' : ' mt-7') : 'opacity-0 -translate-x-4 pointer-events-none'}`}>
               <div className="relative group">
-              <img src={headerHoverShort} alt="" className="absolute -inset-4 opacity-0  group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-out" style={{minWidth:"110px", marginLeft:"2px", marginTop:"-8px"}} />
+              <img src={headerHoverShort} alt="" className="absolute -inset-4 opacity-0  group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-out" style={{minWidth:"130px", marginLeft:"2px", marginTop:"-8px"}} />
                 <button 
                   onClick={() => handleNavigation('works')}
                   className="relative whitespace-nowrap cursor-pointer z-10 hover:opacity-80 transition-opacity"
                 >
-                  <img src={lavoriIcon} alt="Lavori" className="" />
+                  <p className="header-option">LAVORI</p>
                 </button>
               </div>
               <div className="relative group">
-                <img src={headerHoverLong} alt="" className="absolute -inset-4 opacity-0  group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-out" style={{minWidth:"150px", marginLeft:"2px", marginTop:"-12px"}} />
+                <img src={headerHoverLong} alt="" className="absolute -inset-4 opacity-0  group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-out" style={{minWidth:"230px", marginLeft:"2px", marginTop:"-20px"}} />
                 <button 
                   onClick={() => handleNavigation('about')}
                   className="relative whitespace-nowrap cursor-pointer z-10 transition-opacity"
                 >
-                  <img src={chiSiamoIcon} alt="Cosa facciamo" className="" />
+                  <p className="header-option">Cosa facciamo</p>
                 </button>
               </div>
               <div className="relative group">
-              <img src={headerHoverLong} alt="" className="absolute -inset-4 opacity-0  group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-out" style={{minWidth:"150px", marginLeft:"-4px", marginTop:"-12px"}} />
+              <img src={headerHoverLong} alt="" className="absolute -inset-4 opacity-0  group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-out" style={{minWidth:"170px", marginLeft:"-4px", marginTop:"-12px"}} />
                 <button 
                   onClick={() => handleNavigation('contact')}
                   className="relative whitespace-nowrap cursor-pointer z-10 hover:opacity-80 transition-opacity"
                 >
-                  <img src={contattiIcon} alt="Contatti" className="" />
+                  <p className="header-option">CONTATTI</p>
                 </button>
               </div>
             </div>
@@ -180,7 +189,7 @@ export default function Header({}: HeaderProps) {
               </div>
               <button
                 onClick={() => setMenuOpen(false)}
-                className="text-white text-2xl cursor-pointer"
+                className="text-white text-4xl cursor-pointer"
               >
                 <FontAwesomeIcon icon={faTimes} />
               </button>
@@ -190,19 +199,19 @@ export default function Header({}: HeaderProps) {
                 onClick={() => handleNavigation('works')}
                 className="cursor-pointer"
               >
-                <img src={lavoriIcon} alt="Lavori" className="h-8 w-auto hover:scale-105 transition-all duration-300" />
+                <p className="header-option">LAVORI</p>
               </button>
               <button 
                 onClick={() => handleNavigation('about')}
                 className="cursor-pointer"
               >
-                <img src={chiSiamoIcon} alt="Cosa facciamo" className="h-8 w-auto hover:scale-105 transition-all duration-300" />
+                <p className="header-option text-4xl">Cosa facciamo</p>
               </button>
               <button 
                 onClick={() => handleNavigation('contact')}
                 className="cursor-pointer"
               >
-                <img src={contattiIcon} alt="Contatti" className="h-8 w-auto hover:scale-105 transition-all duration-300" />
+                <p className="header-option">CONTATTI</p>
               </button>
             </div>
           </div>
