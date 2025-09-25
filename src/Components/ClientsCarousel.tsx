@@ -54,18 +54,15 @@ export default function ClientsCarousel() {
   const visibleClients = isMobile ? 2.5 : 4
 
   return (
-    <section className="bg-gradient-to-b from-zinc-800/40 to-zinc-900/60 relative overflow-hidden">
+    <section className="relative overflow-hidden">
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_50%)]"></div>
       </div>
       
-      <div className="max-w-8xl mx-auto px-4 py-20 relative z-10">
+      <div className="max-w-8xl mx-auto px-4 pt-10 pb-20 relative z-10">
         <div className="text-center mb-16">
-          <h3 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
-            Si sono già affidati a noi
-          </h3>
-          <div className="w-24 h-1 bg-gradient-to-r from-white/60 to-transparent mx-auto"></div>
+        <h2 className="section-subtitle">si sono già affidati a noi</h2>
         </div>
         
         <div className="mx-auto">

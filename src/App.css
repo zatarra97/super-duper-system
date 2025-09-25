@@ -1,15 +1,125 @@
 @import "tailwindcss";
 @plugin "flowbite-react/plugin/tailwindcss";
 @source "../.flowbite-react/class-list.json";
+
+/* Definizione font Tomarik-Poster */
+@font-face {
+  font-family: 'Tomarik-Poster';
+  src: url('/fonts/Tomarik-Poster/Tomarik-Poster.woff2') format('woff2'),
+       url('/fonts/Tomarik-Poster/Tomarik-Poster.woff') format('woff'),
+       url('/fonts/Tomarik-Poster/Tomarik-Poster.ttf') format('truetype'),
+       url('/fonts/Tomarik-Poster/Tomarik-Poster.eot') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Definizione font Tomarik-Introvert */
+@font-face {
+  font-family: 'Tomarik-Introvert';
+  src: url('/fonts/Tomarik-Introvert/Tomarik-Introvert.woff2') format('woff2'),
+       url('/fonts/Tomarik-Introvert/Tomarik-Introvert.woff') format('woff'),
+       url('/fonts/Tomarik-Introvert/Tomarik-Introvert.ttf') format('truetype'),
+       url('/fonts/Tomarik-Introvert/Tomarik-Introvert.eot') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Definizione font BasicSans */
+@font-face {
+  font-family: 'BasicSans';
+  src: url('/fonts/BasicSans/BasicSans-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BasicSans';
+  src: url('/fonts/BasicSans/BasicSans-RegularIt.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BasicSans';
+  src: url('/fonts/BasicSans/BasicSans-SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BasicSans';
+  src: url('/fonts/BasicSans/BasicSans-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 @theme {
-  --color-primary: #febe10;
+  --color-primary: #C8432A;
   --color-primary-light: #fecb4d;
   --color-primary-dark: #e5a800;
 
   --color-secondary: #032b36;
   --color-secondary-light: #032b36;
   --color-secondary-dark: #032b36;
+
+  /* Font personalizzati */
+  --font-family-tomarik: 'Tomarik-Poster', sans-serif;
+  --font-family-tomarik-introvert: 'Tomarik-Introvert', sans-serif;
+  --font-family-basic: 'BasicSans', sans-serif;
 }
+
+/* Classi utility per Tomarik-Poster */
+.font-tomarik {
+  font-family: var(--font-family-tomarik);
+}
+
+/* Classi utility per Tomarik-Introvert */
+.font-tomarik-introvert {
+  font-family: var(--font-family-tomarik-introvert);
+  font-size: 23px;
+}
+
+/* Classi utility per BasicSans */
+.font-basic {
+  font-family: var(--font-family-basic);
+}
+
+.font-basic-light {
+  font-family: var(--font-family-basic);
+}
+
+.font-basic-regular {
+  font-family: var(--font-family-basic);
+}
+
+.font-basic-italic {
+  font-family: var(--font-family-basic);
+  font-style: italic;
+}
+
+.font-basic-semibold {
+  font-family: var(--font-family-basic);
+}
+
+.font-basic-bold {
+  font-family: var(--font-family-basic);
+}
+
+.section-title {
+  font-family: var(--font-family-tomarik);
+  @apply md:text-[65px] text-4xl leading-none tracking-[0.03em] uppercase text-center;
+}
+
+.section-subtitle {
+  font-family: var(--font-family-tomarik);
+  @apply md:text-[45px] text-4xl leading-none tracking-[0.03em] uppercase text-center;
+}
+
 
 .btn {
   @apply px-6 py-2 bg-white hover:bg-white/80 text-black font-semibold rounded-full transition-colors cursor-pointer;

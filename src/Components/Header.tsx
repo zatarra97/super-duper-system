@@ -118,7 +118,7 @@ export default function Header({}: HeaderProps) {
               <img
                 src={logo}
                 alt="Bekboard Studio"
-                className={`h-18 md:${showBackground ? 'h-[100px]' : 'h-[110px]'} transition-all duration-300`}
+                className={`h-18 md:${showBackground ? 'h-[100px] -mt-8' : 'h-[110px]'} transition-all duration-300`}
               />
             </div>
           </Link>
@@ -141,7 +141,7 @@ export default function Header({}: HeaderProps) {
                   onClick={() => handleNavigation('about')}
                   className="relative whitespace-nowrap cursor-pointer z-10 transition-opacity"
                 >
-                  <img src={chiSiamoIcon} alt="Chi siamo" className="" />
+                  <img src={chiSiamoIcon} alt="Cosa facciamo" className="" />
                 </button>
               </div>
               <div className="relative group">
@@ -160,7 +160,7 @@ export default function Header({}: HeaderProps) {
               className="text-white md:px-8 rounded transition-all duration-300 cursor-pointer"
               onClick={() => setMenuOpen(v => !v)}
             >
-              <img src={burgerIcon} className="h-8 md:h-[50px] -mt-2" />
+              <img src={burgerIcon} className={`${showBackground ? "h-8 md:h-[25px] " : "h-8 md:h-[35px] mt-6"}`} />
             </button>
           </div>
         </div>
@@ -196,7 +196,7 @@ export default function Header({}: HeaderProps) {
                 onClick={() => handleNavigation('about')}
                 className="cursor-pointer"
               >
-                <img src={chiSiamoIcon} alt="Chi siamo" className="h-8 w-auto hover:scale-105 transition-all duration-300" />
+                <img src={chiSiamoIcon} alt="Cosa facciamo" className="h-8 w-auto hover:scale-105 transition-all duration-300" />
               </button>
               <button 
                 onClick={() => handleNavigation('contact')}
