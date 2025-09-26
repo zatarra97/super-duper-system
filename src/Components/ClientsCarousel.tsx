@@ -5,6 +5,7 @@ import berlinClassicLogo from '../Images/clients/berlin_classic.png'
 import collePetritoLogo from '../Images/clients/colle_petrito.png'
 import comuneMinervinoLogo from '../Images/clients/comune_minervino.png'
 import edilVerdeLogo from '../Images/clients/edil_verde.png'
+import bisLogo from '../Images/clients/bis.png'
 
 interface Client {
   id: string
@@ -32,6 +33,11 @@ const clients: Client[] = [
     id: 'edil-verde',
     name: 'Edil Verde',
     logo: edilVerdeLogo
+  },
+  {
+    id: 'bis',
+    name: 'Bis',
+    logo: bisLogo
   }
 ]
 
@@ -51,21 +57,18 @@ export default function ClientsCarousel() {
 
   // Duplica i clienti per l'effetto infinito
   const duplicatedClients = [...clients, ...clients]
-  const visibleClients = isMobile ? 2.5 : 4
+  const visibleClients = isMobile ? 3 : 5
 
   return (
-    <section className="bg-gradient-to-b from-zinc-800/40 to-zinc-900/60 relative overflow-hidden">
+    <section className="relative overflow-hidden">
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_50%)]"></div>
       </div>
       
-      <div className="max-w-8xl mx-auto px-4 py-20 relative z-10">
-        <div className="text-center mb-16">
-          <h3 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
-            Si sono già affidati a noi
-          </h3>
-          <div className="w-24 h-1 bg-gradient-to-r from-white/60 to-transparent mx-auto"></div>
+      <div className="max-w-8xl mx-auto px-4 md:pt-10 md:pb-20 pb-7 relative z-10">
+        <div className="text-center md:mb-16 mb-5">
+        <h2 className="section-subtitle">si sono già affidati a noi</h2>
         </div>
         
         <div className="mx-auto">
@@ -81,9 +84,7 @@ export default function ClientsCarousel() {
                   <img 
                     src={client.logo} 
                     alt={client.name}
-                    className={`max-h-22 md:max-h-24 lg:max-h-28 xl:max-h-32 w-auto object-contain transition-opacity duration-300 ${
-                      client.id === 'berlin-classic' ? 'filter brightness-0 invert' : ''
-                    }`}
+                    className="max-h-22 md:max-h-24 lg:max-h-28 xl:max-h-32 w-auto object-contain transition-opacity duration-300"
                   />
                 </div>
               ))}
@@ -103,7 +104,7 @@ export default function ClientsCarousel() {
         }
         
         .animate-scroll-infinite {
-          animation: scroll-infinite 10s linear infinite;
+          animation: scroll-infinite 15s linear infinite;
           will-change: transform;
         }
         
