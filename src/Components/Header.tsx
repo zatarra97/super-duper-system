@@ -138,7 +138,7 @@ export default function Header({}: HeaderProps) {
             {/* Menu items desktop - nascosti di default */}
             <div className={`hidden md:flex items-center space-x-16 pr-16 transition-all duration-300 ${menuOpen ? 'opacity-100 translate-x-0' + (showBackground ? ' mt-0' : ' mt-7') : 'opacity-0 -translate-x-4 pointer-events-none'}`}>
               <div className="relative group">
-              <img src={headerHoverShort} alt="" className="absolute -inset-4 opacity-0  group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-out" style={{minWidth:"130px", marginLeft:"2px", marginTop:"-8px"}} />
+              <img src={headerHoverShort} alt="" className="absolute -inset-4 opacity-0  group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-out" style={{minWidth:"130px", marginLeft:"2px", marginTop:"-10px"}} />
                 <button 
                   onClick={() => handleNavigation('works')}
                   className="relative whitespace-nowrap cursor-pointer z-10 hover:opacity-80 transition-opacity"

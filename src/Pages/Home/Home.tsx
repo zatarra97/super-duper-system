@@ -12,6 +12,9 @@ import showreelVertical from '../../Images/Showreel_vertical.mp4'
 import scrollIcon from '../../Images/scroll.gif'
 import animationVideo from '../../Images/Animation.mp4'
 
+// Mostra l'intro solo alla prima visita finché la SPA resta caricata
+let hasIntroPlayedForCurrentLoad = false
+
 // Import delle immagini SVG per i filtri
 // import base icons non più utilizzate
 import tuttiHoverIcon from '../../Images/lavori/Tutti_hover.svg'
@@ -45,7 +48,7 @@ export default function Home() {
   const [showAll, setShowAll] = useState(false)
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null)
   // stato hover su "Altri progetti" non più necessario
-  const [introActive, setIntroActive] = useState(true)
+  const [introActive, setIntroActive] = useState(!hasIntroPlayedForCurrentLoad)
   const [fadeOutIntro, setFadeOutIntro] = useState(false)
   const videoRef = useRef<HTMLVideoElement | null>(null)
 
@@ -73,8 +76,16 @@ export default function Home() {
 
   const endIntro = () => {
     setFadeOutIntro(true)
+    hasIntroPlayedForCurrentLoad = true
     setTimeout(() => setIntroActive(false), 800)
   }
+
+  // Se si esce dalla Home, segnamo comunque l'intro come vista per questa sessione SPA
+  useEffect(() => {
+    return () => {
+      hasIntroPlayedForCurrentLoad = true
+    }
+  }, [])
 
   const filtered = useMemo(() => {
     if (selectedCategory === 'Tutti') return mockWorks
@@ -92,7 +103,7 @@ export default function Home() {
         <div className={`fixed inset-0 bg-black z-50 flex items-center justify-center ${fadeOutIntro ? 'animate-[fadeout_0.8s_ease-out_forwards]' : ''}`}>
           <video
             ref={videoRef}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover intro-zoom"
             src={animationVideo}
             autoPlay
             muted
@@ -297,6 +308,10 @@ export default function Home() {
             height: 100vh; /* fallback per browser che non supportano dvh */
           }
         }
+
+        /* Zoom intro video responsive */
+        .intro-zoom { transform: scale(1.45); transform-origin: center center; will-change: transform; }
+        @media (max-width: 768px) { .intro-zoom { transform: scale(1.15); } }
       `}</style>
     </div>
   )
