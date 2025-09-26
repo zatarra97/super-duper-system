@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Header from '../../Components/Header'
 import Contact from '../../Components/Contact'
@@ -10,29 +10,17 @@ import Footer from '../../Components/Footer'
 import showreelHorizontal from '../../Images/Showreel_horizontal.mp4'
 import showreelVertical from '../../Images/Showreel_vertical.mp4'
 import scrollIcon from '../../Images/scroll.gif'
+import animationVideo from '../../Images/Animation.mp4'
 
 // Import delle immagini SVG per i filtri
-import tuttiIcon from '../../Images/lavori/Tutti.svg'
+// import base icons non più utilizzate
 import tuttiHoverIcon from '../../Images/lavori/Tutti_hover.svg'
-import brandedIcon from '../../Images/lavori/Branded.svg'
 import brandedHoverIcon from '../../Images/lavori/Branded_hover.svg'
-import musicVideoIcon from '../../Images/lavori/Music Video.svg'
 import musicVideoHoverIcon from '../../Images/lavori/Music Video_hover.svg'
-import eventiIcon from '../../Images/lavori/Eventi.svg'
 import eventiHoverIcon from '../../Images/lavori/Eventi_hover.svg'
-import altriIcon from '../../Images/lavori/Altri.svg'
 import altriHoverIcon from '../../Images/lavori/Altri_hover.svg'
 
 const categories: Array<'Tutti' | WorkCategory> = ['Tutti', 'Branded', 'Music Video', 'Eventi', 'Altri']
-
-// Mappa delle categorie alle loro immagini SVG
-const categoryIcons: Record<'Tutti' | 'Branded' | 'Music Video' | 'Eventi' | 'Altri', string> = {
-  'Tutti': tuttiIcon,
-  'Branded': brandedIcon,
-  'Music Video': musicVideoIcon,
-  'Eventi': eventiIcon,
-  'Altri': altriIcon
-}
 
 // Mappa delle categorie alle loro immagini hover SVG
 const categoryHoverIcons: Record<'Tutti' | 'Branded' | 'Music Video' | 'Eventi' | 'Altri', string> = {
@@ -56,7 +44,37 @@ export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState<'Tutti' | WorkCategory>('Tutti')
   const [showAll, setShowAll] = useState(false)
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null)
-  const [hoveredAltriProgetti, setHoveredAltriProgetti] = useState(false)
+  // stato hover su "Altri progetti" non più necessario
+  const [introActive, setIntroActive] = useState(true)
+  const [fadeOutIntro, setFadeOutIntro] = useState(false)
+  const videoRef = useRef<HTMLVideoElement | null>(null)
+
+  // Nasconde il banner Cookiebot durante l'animazione, poi lo mostra
+  useEffect(() => {
+    const setCookiebotVisibility = (visible: boolean) => {
+      const dialog = document.getElementById('CybotCookiebotDialog') as HTMLElement | null
+      if (dialog) {
+        dialog.style.display = visible ? '' : 'none'
+      }
+    }
+
+    if (introActive) {
+      setCookiebotVisibility(false)
+      const observer = new MutationObserver(() => setCookiebotVisibility(false))
+      observer.observe(document.body, { childList: true, subtree: true })
+      return () => {
+        observer.disconnect()
+        setCookiebotVisibility(true)
+      }
+    } else {
+      setCookiebotVisibility(true)
+    }
+  }, [introActive])
+
+  const endIntro = () => {
+    setFadeOutIntro(true)
+    setTimeout(() => setIntroActive(false), 800)
+  }
 
   const filtered = useMemo(() => {
     if (selectedCategory === 'Tutti') return mockWorks
@@ -69,8 +87,20 @@ export default function Home() {
 
   return (
     <div className="bg-black text-white">
-      {/* Animazione di apertura semplice */}
-      <div className="fixed inset-0 bg-black z-40 animate-[fadeout_1.2s_ease-out_forwards]" style={{animationDelay:'0.4s'}} />
+      {/* Animazione di apertura full-screen con dissolvenza finale */}
+      {introActive && (
+        <div className={`fixed inset-0 bg-black z-50 flex items-center justify-center ${fadeOutIntro ? 'animate-[fadeout_0.8s_ease-out_forwards]' : ''}`}>
+          <video
+            ref={videoRef}
+            className="w-full h-full object-cover"
+            src={animationVideo}
+            autoPlay
+            muted
+            playsInline
+            onEnded={endIntro}
+          />
+        </div>
+      )}
 
       {/* Header fisso */}
       <Header />
@@ -169,8 +199,6 @@ export default function Home() {
           <div className="md:mt-12 mt-5 flex flex-col items-center">
             <button
               onClick={() => setShowAll(true)}
-              onMouseEnter={() => setHoveredAltriProgetti(true)}
-              onMouseLeave={() => setHoveredAltriProgetti(false)}
               className="transition-all duration-300 hover:scale-105 cursor-pointer"
             >
               <p className="font-tomarik text-lg md:text-xl hover:text-primary">Altri progetti</p>

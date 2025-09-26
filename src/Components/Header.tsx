@@ -118,7 +118,7 @@ export default function Header({}: HeaderProps) {
 
   return (
     <>
-      <div className={`${location.pathname === '/' ? 'fixed' : 'relative'} top-0 left-0 right-0 z-50 pointer-events-none transition-all duration-300 ${
+      <div className={`${location.pathname === '/' ? 'fixed' : 'relative'} top-0 left-0 right-0 z-40 pointer-events-none transition-all duration-300 ${
         showBackground ? 'bg-black/60 backdrop-blur-md' : 'bg-transparent'
       }`}>
         <div className="mx-auto px-4 py-4 flex items-center justify-between">
