@@ -145,7 +145,7 @@ export default function Header({}: HeaderProps) {
                 </button>
               </div>
               <div className="relative group">
-                <img src={headerHoverLong} alt="" className="absolute -inset-4 opacity-0  group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-out" style={{minWidth:"230px", marginLeft:"2px", marginTop:"-20px"}} />
+                <img src={headerHoverLong} alt="" className="absolute -inset-4 opacity-0  group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-out" style={{minWidth:"250px", marginLeft:"2px", marginTop:"-19px"}} />
                 <button 
                   onClick={() => handleNavigation('about')}
                   className="relative whitespace-nowrap cursor-pointer z-10 transition-opacity"
@@ -154,7 +154,7 @@ export default function Header({}: HeaderProps) {
                 </button>
               </div>
               <div className="relative group">
-              <img src={headerHoverLong} alt="" className="absolute -inset-4 opacity-0  group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-out" style={{minWidth:"170px", marginLeft:"-4px", marginTop:"-12px"}} />
+              <img src={headerHoverLong} alt="" className="absolute -inset-4 opacity-0  group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-out" style={{minWidth:"172px", marginLeft:"-6px", marginTop:"-2px"}} />
                 <button 
                   onClick={() => handleNavigation('contact')}
                   className="relative whitespace-nowrap cursor-pointer z-10 hover:opacity-80 transition-opacity"

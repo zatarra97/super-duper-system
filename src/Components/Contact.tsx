@@ -15,11 +15,11 @@ export default function Contact() {
             <a className="hover:underline hover:text-white" href="mailto:collab@bekboard.it">collab@bekboard.it</a><br/><br/>
 
             <a className="hover:underline hover:text-white" href="tel:+393274730600">+39 327 473 0600</a><br/><br/>
-            <span>INSTAGRAM</span><br/>
+            <span className="font-bold">INSTAGRAM</span><br/>
             <a className="hover:underline hover:text-white" href="https://www.instagram.com/bekboardstudio?igsh=YmYwajd4bmlieWp6&utm_source=qr" target="_blank" rel="noopener noreferrer">@Bekboard</a>
             <br/><br/>
-            <span>YOUTUBE</span><br/>
-            <a className="hover:underline hover:text-white" href="www.youtube.com/@BekboardStudio" target="_blank" rel="noopener noreferrer">@Bekboard</a>
+            <span className="font-bold">YOUTUBE</span><br/>
+            <a className="hover:underline hover:text-white" href="https://www.youtube.com/@BekboardStudio" target="_blank" rel="noopener noreferrer">@Bekboard</a>
           </p>
         </div>
 

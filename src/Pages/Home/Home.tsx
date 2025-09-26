@@ -22,10 +22,6 @@ import eventiIcon from '../../Images/lavori/Eventi.svg'
 import eventiHoverIcon from '../../Images/lavori/Eventi_hover.svg'
 import altriIcon from '../../Images/lavori/Altri.svg'
 import altriHoverIcon from '../../Images/lavori/Altri_hover.svg'
-import altriProgettiIcon from '../../Images/lavori/Altri_progetti.svg'
-import altriProgettiHoverIcon from '../../Images/lavori/Altri_progetti_hover.svg'
-import inostriLavoriImg from '../../Images/lavori/i_nostri_lavori.svg'
-import chiSiamoImg from '../../Images/chi_siamo/chi_siamo.svg'
 
 const categories: Array<'Tutti' | WorkCategory> = ['Tutti', 'Branded', 'Music Video', 'Eventi', 'Altri']
 
@@ -160,9 +156,9 @@ export default function Home() {
               <img src={w.thumbnailUrl} alt={w.title} className="w-full h-56 object-cover group-hover:scale-105 transition" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-                <h3 className="text-lg font-semibold mb-2 text-white/90 group-hover:text-white transition-colors">{w.title}</h3>
-                <p className="text-sm text-white/70 group-hover:text-white/90 transition-colors">{w.shortDesc}</p>
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 max-w-[400px] mx-auto">
+                <h3 className="text-lg font-semibold mb-2 group-hover:text-white transition-colors font-basic-light text-white/90 leading-relaxed">{w.title}</h3>
+                <p className="text-sm text-white/70 group-hover:text-white/90 transition-colors font-basic-light">{w.shortDesc}</p>
               </div>
             </Link>
           ))}
