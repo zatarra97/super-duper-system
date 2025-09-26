@@ -85,20 +85,6 @@ export default function BackstageCarousel({ images, videos = [] }: BackstageCaro
                     />
                   )}
                   
-                  {/* Overlay con indicatore tipo media */}
-                  <div className="absolute top-3 right-3">
-                    <div className="w-8 h-8 bg-black/60 rounded-full flex items-center justify-center">
-                      {isVideo ? (
-                        <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M8 5v14l11-7z"/>
-                        </svg>
-                      ) : (
-                        <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
-                        </svg>
-                      )}
-                    </div>
-                  </div>
                 </div>
               </div>
             )
@@ -107,7 +93,7 @@ export default function BackstageCarousel({ images, videos = [] }: BackstageCaro
       </div>
 
       {/* Indicatori di posizione */}
-      {allMedia.length > 1 && (
+      {/*allMedia.length > 1 && (
         <div className="flex justify-center mt-6 space-x-2">
           {allMedia.map((_, index) => (
             <button
@@ -122,7 +108,7 @@ export default function BackstageCarousel({ images, videos = [] }: BackstageCaro
             />
           ))}
         </div>
-      )}
+      )}*/}
 
       <style jsx>{`
         .scrollbar-hide {

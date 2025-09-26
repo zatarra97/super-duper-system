@@ -16,13 +16,15 @@ export default function Header({}: HeaderProps) {
   const scrollY = useScrollPosition()
 
   // Calcola se l'header deve avere lo sfondo
-  const [showBackground, setShowBackground] = useState(false)
+  // Fuori dalla homepage parte già "compattato" per evitare flicker
+  const [showBackground, setShowBackground] = useState(location.pathname !== '/')
 
   useEffect(() => {
     const calculateBackground = () => {
       // Se siamo nella pagina di dettaglio lavori, l'header non è fisso
       if (location.pathname !== '/') {
-        setShowBackground(false)
+        // Fuori dalla homepage vogliamo l'header già in stato "compattato"
+        setShowBackground(true)
         return
       }
       
@@ -118,7 +120,7 @@ export default function Header({}: HeaderProps) {
 
   return (
     <>
-      <div className={`${location.pathname === '/' ? 'fixed' : 'relative'} top-0 left-0 right-0 z-40 pointer-events-none transition-all duration-300 ${
+      <div className={`fixed top-0 left-0 right-0 z-40 pointer-events-none transition-all duration-300 ${
         showBackground ? 'bg-black/60 backdrop-blur-md' : 'bg-transparent'
       }`}>
         <div className="mx-auto px-4 py-4 flex items-center justify-between">

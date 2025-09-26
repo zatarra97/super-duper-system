@@ -26,9 +26,8 @@ export default function WorkDetail() {
       <Header />
 
       {/* Media principale */}
-      <section className="pt-16">
-        <div className="max-w-8xl mx-auto py-8">
-          <h1 className="text-2xl md:text-4xl font-bold mb-6 px-4">{work.title}</h1>
+      <section className="pt-24 md:pt-32">
+        <div className="max-w-8xl mx-auto pb-8">
           <div className="aspect-video rounded overflow-hidden bg-black">
             {work.youtubeVideoUrl ? (
               <iframe
@@ -49,21 +48,23 @@ export default function WorkDetail() {
               <img src={work.thumbnailUrl} className="w-full h-full object-cover" />
             )}
           </div>
+          <div className="px-4 lg:px-0">
+            <h1 className="text-2xl md:text-[40px] font-basic-bold font-semibold  text-white uppercase">{work.title}</h1>
+            <h1 className="text-sm md:text-lg font-basic-bold font-semibold mb-6 uppercase md:-mt-2">{work.shortDesc}</h1>
+          </div>
         </div>
       </section>
 
       {/* Descrizione e crew */}
       <section>
-        <div className="max-w-8xl mx-auto px-4 pb-8 grid md:grid-cols-3 gap-8">
-          <div className="md:col-span-2">
-            <h2 className="font-semibold mb-2">Descrizione</h2>
-            <p className="text-white/80 leading-relaxed">{work.description}</p>
-          </div>
+        <div className="max-w-8xl mx-auto px-4 lg:px-0">
           <div>
-            <h3 className="font-semibold mb-2">Crew</h3>
-            <ul className="space-y-1 text-white/80">
+            <ul className="space-y-6">
               {work.crew.map((c, idx) => (
-                <li key={idx}>{c.role}: {c.name}</li>
+                <li key={idx} className="flex items-baseline gap-2">
+                  <span className="crew-role text-white/60 font-basic-light taxt-lg md:text-xl leading-none">{c.role}:</span>
+                  <span className="crew-name text-white uppercase font-tomarik-introvert leading-none">{c.name}</span>
+                </li>
               ))}
             </ul>
           </div>
@@ -72,8 +73,7 @@ export default function WorkDetail() {
 
       {/* Backstage */}
       <section>
-        <div className="px-4 pb-12">
-          <h3 className="max-w-8xl mx-auto font-semibold mb-6 text-xl md:text-2xl">Foto dal set</h3>
+        <div className="px-4 pt-8">
           <BackstageCarousel 
             images={work.backstageImages}
             videos={work.backstageVideos || []}
