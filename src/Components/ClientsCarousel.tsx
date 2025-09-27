@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 
 // Import dei loghi dei clienti
 import berlinClassicLogo from '../Images/clients/berlin_classic.png'
@@ -58,6 +58,11 @@ export default function ClientsCarousel() {
   // Duplica i clienti per l'effetto infinito
   const duplicatedClients = [...clients, ...clients]
   const visibleClients = isMobile ? 3 : 5
+  
+  // Su mobile aggiungiamo un ulteriore elemento con il primo logo per una chiusura più fluida
+  const extendedClients = useMemo(() => {
+    return isMobile ? [...duplicatedClients, clients[0]] : duplicatedClients
+  }, [isMobile])
 
   return (
     <section className="relative overflow-hidden">
@@ -74,11 +79,11 @@ export default function ClientsCarousel() {
         <div className="mx-auto">
           {/* Carosello con scorrimento continuo */}
           <div className="relative overflow-hidden">
-            <div className="flex gap-8 md:gap-12 lg:gap-16 animate-scroll-infinite">
-              {duplicatedClients.map((client, index) => (
+            <div className="flex gap-1 md:gap-12 lg:gap-16 animate-scroll-infinite">
+              {extendedClients.map((client, index) => (
                 <div 
                   key={`${client.id}-${index}`}
-                  className="flex items-center justify-center p-4 hover:scale-105 transition-transform duration-300 flex-shrink-0"
+                  className="flex items-center justify-center py-4 px-0 md:p-4 hover:scale-105 transition-transform duration-300 flex-shrink-0"
                   style={{ width: `${100 / visibleClients}%` }}
                 >
                   <img 
@@ -106,6 +111,13 @@ export default function ClientsCarousel() {
         .animate-scroll-infinite {
           animation: scroll-infinite 15s linear infinite;
           will-change: transform;
+        }
+        
+        /* Mobile: aumenta la velocità dello scorrimento */
+        @media (max-width: 768px) {
+          .animate-scroll-infinite {
+            animation-duration: 12s;
+          }
         }
         
         .animate-scroll-infinite:hover {
