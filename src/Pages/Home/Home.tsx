@@ -11,6 +11,7 @@ import showreelHorizontal from '../../Images/Showreel_horizontal.mp4'
 import showreelVertical from '../../Images/Showreel_vertical.mp4'
 import scrollIcon from '../../Images/scroll.gif'
 import animationVideo from '../../Images/Animation.mp4'
+import PatternCosaFacciamo from '../../Images/Pattern_cosa_facciamo.svg'
 
 // Mostra l'intro solo alla prima visita finché la SPA resta caricata
 let hasIntroPlayedForCurrentLoad = false
@@ -231,12 +232,19 @@ export default function Home() {
         )}
       </section>
 
-      {/* ABOUT */}
-      <section id="about" className=" relative overflow-hidden">
+      {/* ABOUT / Cosa facciamo */}
+      <section id="about" className=" relative overflow-visible">
         {/* Background pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_50%)]"></div>
         </div>
+        {/* Pattern decorativo in basso a destra, solo desktop */}
+        <img
+          src={PatternCosaFacciamo}
+          alt=""
+          aria-hidden="true"
+          className="hidden md:block absolute bottom-10 lg:-bottom-2 xl:-bottom-30 left-0 md:left-2 lg:left-0 w-[360px] lg:w-[420px] xl:w-[500px] z-0 pointer-events-none select-none"
+        />
         
         <div className="max-w-8xl mx-auto px-4 md:pt-5 pb-20 relative z-10">
           <div className="text-center mb-6">
