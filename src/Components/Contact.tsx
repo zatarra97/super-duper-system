@@ -1,9 +1,17 @@
+import PatternContatti from '../Images/Pattern_contatti.svg'
+
 export default function Contact() {
   return (
-    <section id="contact" className="max-w-8xl mx-auto px-4 pt-10 pb-16">
+    <section id="contact" className="relative max-w-8xl mx-auto px-4 pt-10 pb-16">
       <h2 className="section-title">Contatti</h2>
+      <img
+        src={PatternContatti}
+        alt=""
+        aria-hidden="true"
+        className="hidden md:block absolute top-2 lg:-mt-8 right-0 md:right-2 lg:right-0 w-[250px] lg:w-[320px] xl:w-[400px] pointer-events-none select-none"
+      />
       <div className="grid md:grid-cols-2 gap-8 justify-center mt-5">
-        
+
         <div className="">
           <p className="text-2xl md:text-[40px] font-basic-bold font-semibold  text-white mt-2 text-left">
             Raccontaci la tua idea!
