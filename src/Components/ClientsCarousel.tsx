@@ -116,7 +116,7 @@ export default function ClientsCarousel() {
         /* Mobile: aumenta la velocità dello scorrimento */
         @media (max-width: 768px) {
           .animate-scroll-infinite {
-            animation-duration: 12s;
+            animation-duration: 7s;
           }
         }
         

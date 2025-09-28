@@ -36,7 +36,7 @@ export default function BackstageCarousel({ images, videos = [] }: BackstageCaro
   }
 
   return (
-    <div className="relative w-full px-4 md:px-8 lg:px-12 xl:px-14">
+    <div className="relative w-full px-4 md:px-8 lg:px-12 xl:px-14 z-20 bg-black">
       {/* Pulsanti di navigazione */}
       <button
         onClick={prevItem}

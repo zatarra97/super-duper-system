@@ -129,7 +129,7 @@ export default function Header({}: HeaderProps) {
               <img
                 src={logo}
                 alt="Bekboard Studio"
-                className={`h-18 md:${showBackground ? 'h-[100px] md:-mt-8' : 'h-[110px]'} transition-all duration-300`}
+                className={`h-16 md:${showBackground ? 'h-[100px] md:-mt-8' : 'h-[110px]'} transition-all duration-300`}
               />
             </div>
           </Link>

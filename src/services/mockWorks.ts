@@ -162,7 +162,6 @@ export const mockWorks: WorkItem[] = [
       { role: 'Montaggio', name: 'Pietro Giocondo' },
     ],
     backstageImages: [
-      collePetritoBackstage1,
       collePetritoBackstage2,
       collePetritoBackstage3,
       collePetritoBackstage4,

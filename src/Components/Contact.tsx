@@ -8,7 +8,7 @@ export default function Contact() {
         src={PatternContatti}
         alt=""
         aria-hidden="true"
-        className="hidden md:block absolute top-2 lg:-mt-8 right-0 md:right-2 lg:right-0 w-[250px] lg:w-[320px] xl:w-[400px] pointer-events-none select-none"
+        className="hidden md:block absolute top-2 lg:-mt-8 right-0 md:right-2 lg:right-0 w-[250px] lg:w-[320px] xl:w-[400px] pointer-events-none select-none z-10"
       />
       <div className="grid md:grid-cols-2 gap-8 justify-center mt-5">
 
