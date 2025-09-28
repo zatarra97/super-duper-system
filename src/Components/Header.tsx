@@ -187,7 +187,7 @@ export default function Header({}: HeaderProps) {
           <div className="fixed inset-0 bg-black z-50 md:hidden flex flex-col animate-[slideInFromRight_0.3s_ease-out]">
             <div className="flex justify-between items-center p-4">
               <div className="text-white font-bold tracking-widest text-lg capitalize">
-                <img src={logo} alt="Bekboard Studio" className="h-18 md:h-[110px]" />
+                <img src={logo} alt="Bekboard Studio" className="h-16 md:h-[110px]" />
               </div>
               <button
                 onClick={() => setMenuOpen(false)}

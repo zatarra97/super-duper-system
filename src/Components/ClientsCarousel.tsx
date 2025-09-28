@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo, useRef } from 'react'
 
 // Import dei loghi dei clienti
 import berlinClassicLogo from '../Images/clients/berlin_classic.png'
@@ -43,6 +43,7 @@ const clients: Client[] = [
 
 export default function ClientsCarousel() {
   const [isMobile, setIsMobile] = useState(false)
+  const trackRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
     const checkMobile = () => {
@@ -64,6 +65,38 @@ export default function ClientsCarousel() {
     return isMobile ? [...duplicatedClients, clients[0]] : duplicatedClients
   }, [isMobile])
 
+  // Calcola la distanza da percorrere (larghezza della prima sequenza) e imposta durata in base a una velocità costante
+  useEffect(() => {
+    const updateScrollMetrics = () => {
+      const track = trackRef.current
+      if (!track) return
+      const children = Array.from(track.children) as HTMLElement[]
+      if (children.length === 0) return
+
+      const firstIndexAfterFirstLoop = clients.length
+      if (!children[firstIndexAfterFirstLoop]) return
+
+      const firstLeft = children[0].offsetLeft
+      const boundaryLeft = children[firstIndexAfterFirstLoop].offsetLeft
+      const distancePx = Math.max(1, boundaryLeft - firstLeft)
+
+      // Velocità costante in px/s (mobile più veloce)
+      const speedPxPerSec = isMobile ? 30 : 60
+      const durationSec = Math.max(6, distancePx / speedPxPerSec)
+
+      track.style.setProperty('--scroll-distance', `${distancePx}px`)
+      track.style.animationDuration = `${durationSec}s`
+    }
+
+    // Aggiorna subito e al resize
+    const rAF = requestAnimationFrame(updateScrollMetrics)
+    window.addEventListener('resize', updateScrollMetrics)
+    return () => {
+      cancelAnimationFrame(rAF)
+      window.removeEventListener('resize', updateScrollMetrics)
+    }
+  }, [isMobile])
+
   return (
     <section className="relative overflow-hidden">
       {/* Background pattern */}
@@ -79,17 +112,17 @@ export default function ClientsCarousel() {
         <div className="mx-auto">
           {/* Carosello con scorrimento continuo */}
           <div className="relative overflow-hidden">
-            <div className="flex gap-1 md:gap-12 lg:gap-16 animate-scroll-infinite">
+            <div ref={trackRef} className="flex gap-4 md:gap-12 lg:gap-16 animate-scroll-infinite">
               {extendedClients.map((client, index) => (
                 <div 
                   key={`${client.id}-${index}`}
-                  className="flex items-center justify-center py-4 px-0 md:p-4 hover:scale-105 transition-transform duration-300 flex-shrink-0"
+                  className="flex items-center justify-center p-4 hover:scale-105 transition-transform duration-300 flex-shrink-0"
                   style={{ width: `${100 / visibleClients}%` }}
                 >
                   <img 
                     src={client.logo} 
                     alt={client.name}
-                    className="max-h-22 md:max-h-24 lg:max-h-28 xl:max-h-32 w-auto object-contain transition-opacity duration-300"
+                    className="max-h-28 xl:max-h-32 w-auto object-contain transition-opacity duration-300"
                   />
                 </div>
               ))}
@@ -104,20 +137,13 @@ export default function ClientsCarousel() {
             transform: translateX(0);
           }
           100% {
-            transform: translateX(-50%);
+            transform: translateX(calc(-1 * var(--scroll-distance, 50%)));
           }
         }
         
         .animate-scroll-infinite {
           animation: scroll-infinite 15s linear infinite;
           will-change: transform;
-        }
-        
-        /* Mobile: aumenta la velocità dello scorrimento */
-        @media (max-width: 768px) {
-          .animate-scroll-infinite {
-            animation-duration: 7s;
-          }
         }
         
         .animate-scroll-infinite:hover {
