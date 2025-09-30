@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Header from '../../Components/Header'
+import SEO from '../../Components/SEO'
+import { siteSeoConfig } from '../../config/seo'
 import Contact from '../../Components/Contact'
 import FixedInstagram from '../../Components/FixedInstagram'
 import ClientsCarousel from '../../Components/ClientsCarousel'
@@ -99,12 +101,29 @@ export default function Home() {
 
   return (
     <div className="bg-black text-white">
+      <SEO 
+        title={siteSeoConfig.defaultTitle}
+        description={siteSeoConfig.defaultDescription}
+        image={siteSeoConfig.defaultImage}
+        canonical={siteSeoConfig.siteUrl}
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'WebSite',
+          name: siteSeoConfig.siteName,
+          url: siteSeoConfig.siteUrl,
+          potentialAction: {
+            '@type': 'SearchAction',
+            target: `${siteSeoConfig.siteUrl}/?q={search_term_string}`,
+            'query-input': 'required name=search_term_string'
+          }
+        }}
+      />
       {/* Animazione di apertura full-screen con dissolvenza finale */}
       {introActive && (
         <div className={`fixed inset-0 bg-black z-50 flex items-center justify-center ${fadeOutIntro ? 'animate-[fadeout_0.8s_ease-out_forwards]' : ''}`}>
           <video
             ref={videoRef}
-            className="max-w-48 md:min-w-72 object-cover intro-zoom"
+            className="min-w-full md:min-w-72 object-cover intro-zoom"
             src={animationVideo}
             autoPlay
             muted

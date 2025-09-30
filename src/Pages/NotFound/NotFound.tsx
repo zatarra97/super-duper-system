@@ -1,10 +1,18 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import SEO from '../../Components/SEO'
+import { siteSeoConfig } from '../../config/seo'
 
 export default function NotFound() {
   return (
     <div className="min-h-screen bg-slate-100 flex items-center justify-center">
+      <SEO 
+        title={`Pagina non trovata – ${siteSeoConfig.siteName}`}
+        description={"La pagina richiesta non esiste."}
+        canonical={`${siteSeoConfig.siteUrl}/404`}
+        noindex
+      />
       <div className="container px-4">
         <div className="max-w-2xl mx-auto text-center">
           <div className="relative">

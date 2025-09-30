@@ -5,6 +5,8 @@ import Footer from '../../Components/Footer'
 import FixedInstagram from '../../Components/FixedInstagram'
 import BackstageCarousel from '../../Components/BackstageCarousel'
 import { mockWorks } from '../../services/mockWorks'
+import SEO from '../../Components/SEO'
+import { siteSeoConfig } from '../../config/seo'
 
 export default function WorkDetail() {
   const { slug } = useParams<{ slug: string }>()
@@ -23,6 +25,28 @@ export default function WorkDetail() {
 
   return (
     <div className="bg-black text-white min-h-screen">
+      <SEO 
+        title={`${work.title} – ${siteSeoConfig.siteName}`}
+        description={work.description || work.shortDesc}
+        image={work.thumbnailUrl}
+        canonical={`${siteSeoConfig.siteUrl}/work/${work.slug}`}
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'VideoObject',
+          name: work.title,
+          description: work.description || work.shortDesc,
+          thumbnailUrl: work.thumbnailUrl,
+          uploadDate: new Date().toISOString(),
+          publisher: {
+            '@type': 'Organization',
+            name: siteSeoConfig.siteName,
+            logo: {
+              '@type': 'ImageObject',
+              url: siteSeoConfig.defaultImage
+            }
+          }
+        }}
+      />
       <Header />
 
       {/* Media principale */}
