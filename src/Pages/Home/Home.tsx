@@ -104,7 +104,7 @@ export default function Home() {
         <div className={`fixed inset-0 bg-black z-50 flex items-center justify-center ${fadeOutIntro ? 'animate-[fadeout_0.8s_ease-out_forwards]' : ''}`}>
           <video
             ref={videoRef}
-            className="w-full h-full object-cover intro-zoom"
+            className="max-w-48 md:min-w-72 object-cover intro-zoom"
             src={animationVideo}
             autoPlay
             muted
