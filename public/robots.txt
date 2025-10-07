@@ -1,5 +1,11 @@
 User-agent: *
 Allow: /
 
-Sitemap: /sitemap.xml
+# Sitemap per bekboard.it
+Sitemap: https://bekboard.it/sitemap.xml
+
+# Blocca accesso a vecchi contenuti di servertesting.it
+Disallow: /servertesting/
+Disallow: /old/
+Disallow: /test/
 

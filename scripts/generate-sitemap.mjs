@@ -1,15 +1,13 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs'
 import { resolve } from 'node:path'
 
-// Semplice generatore di sitemap: estrae gli slug da src/services/mockWorks.ts e crea public/sitemap.xml
-// Nota: usa una regex robusta per pattern slug: '...'
+// Generatore di sitemap ottimizzato per bekboard.it
+// Estrae gli slug da src/services/mockWorks.ts e crea public/sitemap.xml
 
 const projectRoot = resolve(process.cwd())
-const siteUrl = process.env.VITE_SITE_URL || ''
+const siteUrl = process.env.VITE_SITE_URL || 'https://bekboard.it'
 
-if (!siteUrl) {
-  console.warn('[sitemap] VITE_SITE_URL non impostata. Imposta VITE_SITE_URL per sitemap/canonical corretti.')
-}
+console.log(`[sitemap] Generando sitemap per: ${siteUrl}`)
 
 const mockWorksPath = resolve(projectRoot, 'src', 'services', 'mockWorks.ts')
 const publicDir = resolve(projectRoot, 'public')
@@ -23,9 +21,13 @@ while ((match = slugRegex.exec(src)) !== null) {
   slugs.push(match[1])
 }
 
+// URL principali del sito bekboard.it
 const urls = [
-  '',
-  ...slugs.map((s) => `work/${s}`)
+  '', // Homepage
+  'about', // Pagina About (se esiste)
+  'contact', // Pagina Contact
+  'services', // Pagina Services (se esiste)
+  ...slugs.map((s) => `work/${s}`) // Portfolio works
 ]
 
 const now = new Date().toISOString()
@@ -35,7 +37,14 @@ const xml = `<?xml version="1.0" encoding="UTF-8"?>
 ${urls
   .map((u) => {
     const loc = siteUrl ? `${siteUrl}/${u}`.replace(/\/+/g, '/') : `/${u}`
-    return `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${now}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>${u === '' ? '1.0' : '0.6'}</priority>\n  </url>`
+    const priority = u === '' ? '1.0' : u.includes('work/') ? '0.8' : '0.6'
+    const changefreq = u === '' ? 'weekly' : u.includes('work/') ? 'monthly' : 'monthly'
+    return `  <url>
+    <loc>${loc}</loc>
+    <lastmod>${now}</lastmod>
+    <changefreq>${changefreq}</changefreq>
+    <priority>${priority}</priority>
+  </url>`
   })
   .join('\n')}
 </urlset>`
@@ -46,5 +55,6 @@ if (!existsSync(publicDir)) {
 
 writeFileSync(sitemapPath, xml)
 console.log(`[sitemap] Generata sitemap con ${urls.length} URL in ${sitemapPath}`)
+console.log(`[sitemap] URL inclusi: ${urls.slice(0, 5).join(', ')}${urls.length > 5 ? '...' : ''}`)
 
 
