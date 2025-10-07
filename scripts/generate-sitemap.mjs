@@ -5,7 +5,7 @@ import { resolve } from 'node:path'
 // Estrae gli slug da src/services/mockWorks.ts e crea public/sitemap.xml
 
 const projectRoot = resolve(process.cwd())
-const siteUrl = process.env.VITE_SITE_URL || 'https://bekboard.it'
+const siteUrl = 'https://bekboard.it'
 
 console.log(`[sitemap] Generando sitemap per: ${siteUrl}`)
 
@@ -36,7 +36,7 @@ const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls
   .map((u) => {
-    const loc = siteUrl ? `${siteUrl}/${u}`.replace(/\/+/g, '/') : `/${u}`
+    const loc = siteUrl ? `${siteUrl}/${u}`.replace(/\/+/g, '/').replace(/\/$/, '') : `/${u}`
     const priority = u === '' ? '1.0' : u.includes('work/') ? '0.8' : '0.6'
     const changefreq = u === '' ? 'weekly' : u.includes('work/') ? 'monthly' : 'monthly'
     return `  <url>

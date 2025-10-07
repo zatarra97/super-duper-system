@@ -12,8 +12,8 @@ type SEOProps = {
 
 // Componente riutilizzabile per gestire meta tag, Open Graph, Twitter cards e JSON-LD
 export default function SEO({ title, description, canonical, image, noindex, jsonLd }: SEOProps) {
-  const siteName = import.meta.env.VITE_APP_NAME || 'Bekboard Studio'
-  const siteUrl = (import.meta as any).env.VITE_SITE_URL || ''
+  const siteName = 'Bekboard Studio'
+  const siteUrl = 'https://bekboard.it'
   const fullCanonical = canonical || (typeof window !== 'undefined' ? window.location.href : '')
 
   const ogImage = image || `${siteUrl}/logo.png`

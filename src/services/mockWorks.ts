@@ -252,7 +252,7 @@ export const mockWorks: WorkItem[] = [
     description: 'Videoclip musicale con Nicolò Balducci e Anna Paradiso per BIS Records.',
     crew: [
       { role: 'Con', name: 'Nicolò Balducci, Anna Paradiso, Francesca Giuliano' },
-      { role: 'Client', name: 'BIS Records' },
+      { role: 'Cliente', name: 'BIS Records' },
       { role: 'Produzione', name: 'Bekboard Studio' },
       { role: 'Scritto da', name: 'Gioacchino Bruno' },
       { role: 'Diretto da', name: 'Gioacchino Bruno' },
@@ -285,7 +285,7 @@ export const mockWorks: WorkItem[] = [
     description: 'Videoclip musicale con atmosfere marine per BIS Records.',
     crew: [
       { role: 'Con', name: 'Nicolò Balducci, Francesco Volpe, Mariacristina Santomauro' },
-      { role: 'Client', name: 'BIS Records' },
+      { role: 'Cliente', name: 'BIS Records' },
       { role: 'Produzione', name: 'Bekboard Studio' },
       { role: 'Scritto da', name: 'Gioacchino Bruno' },
       { role: 'Diretto da', name: 'Gioacchino Bruno' },
@@ -327,7 +327,7 @@ export const mockWorks: WorkItem[] = [
     description: 'Videoclip musicale con Carlotta Dalia per Berlin Classics.',
     crew: [
       { role: 'Con', name: 'Carlotta Dalia' },
-      { role: 'Client', name: 'Berlin Classics' },
+      { role: 'Cliente', name: 'Berlin Classics' },
       { role: 'Produzione', name: 'Bekboard Studio' },
       { role: 'Scritto e diretto da', name: 'Gioacchino Bruno e Pietro Giocondo' },
       { role: 'Fotografia', name: 'Pietro Giocondo' },
@@ -354,7 +354,7 @@ export const mockWorks: WorkItem[] = [
     description: 'Videoclip musicale con Carlotta Dalia per Berlin Classics.',
     crew: [
       { role: 'Con', name: 'Carlotta Dalia' },
-      { role: 'Client', name: 'Berlin Classics' },
+      { role: 'Cliente', name: 'Berlin Classics' },
       { role: 'Produzione', name: 'Bekboard Studio' },
       { role: 'Scritto e diretto da', name: 'Gioacchino Bruno e Pietro Giocondo' },
       { role: 'Fotografia', name: 'Pietro Giocondo' },
@@ -384,7 +384,7 @@ export const mockWorks: WorkItem[] = [
     description: 'Videoclip musicale con Carlotta Dalia per Berlin Classics.',
     crew: [
       { role: 'Con', name: 'Carlotta Dalia' },
-      { role: 'Client', name: 'Berlin Classics' },
+      { role: 'Cliente', name: 'Berlin Classics' },
       { role: 'Produzione', name: 'Bekboard Studio' },
       { role: 'Scritto e diretto da', name: 'Gioacchino Bruno e Pietro Giocondo' },
       { role: 'Fotografia', name: 'Pietro Giocondo' },

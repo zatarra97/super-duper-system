@@ -104,9 +104,9 @@ export default function ClientsCarousel() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_50%)]"></div>
       </div>
       
-      <div className="max-w-8xl mx-auto px-4 md:pt-10 md:pb-20 pb-7 relative z-10">
+      <div className="max-w-8xl mx-auto px-4 pt-2 md:pt-10 md:pb-20 pb-7 relative z-10">
         <div className="text-center md:mb-16 mb-5">
-        <h2 className="section-subtitle">si sono già affidati a noi</h2>
+        <h2 className="section-subtitle uppercase">si sono già affidati a noi</h2>
         </div>
         
         <div className="mx-auto">
