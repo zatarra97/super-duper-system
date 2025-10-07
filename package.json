@@ -6,7 +6,8 @@
   "scripts": {
     "start": "vite",
     "build": "vite build",
-    "build:sitemap": "node --env-file=.env.local scripts/generate-sitemap.mjs",
+    "build:sitemap": "node scripts/generate-sitemap.mjs",
+    "deploy:local": "cross-env-shell VITE_SITE_URL=${VITE_SITE_URL:-https://www.bekboard.it} npm run build:sitemap && npm run build",
     "lint": "eslint .",
     "preview": "vite preview",
     "postinstall": "flowbite-react patch",
@@ -44,6 +45,7 @@
     "@types/react": "^18.3.20",
     "@types/react-dom": "^18.3.6",
     "@vitejs/plugin-react": "^4.3.4",
+    "cross-env": "^10.1.0",
     "eslint": "^9.17.0",
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^5.0.0",
