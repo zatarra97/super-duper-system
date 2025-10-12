@@ -37,6 +37,9 @@ export default function WorkDetail() {
           description: work.description || work.shortDesc,
           thumbnailUrl: work.thumbnailUrl,
           uploadDate: new Date().toISOString(),
+          ...(work.youtubeVideoUrl && { embedUrl: work.youtubeVideoUrl }),
+          ...(work.coverVideoUrl && { contentUrl: work.coverVideoUrl }),
+          ...(work.trailerUrl && !work.coverVideoUrl && { contentUrl: work.trailerUrl }),
           publisher: {
             '@type': 'Organization',
             name: siteSeoConfig.siteName,

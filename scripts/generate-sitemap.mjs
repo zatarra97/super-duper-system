@@ -21,12 +21,9 @@ while ((match = slugRegex.exec(src)) !== null) {
   slugs.push(match[1])
 }
 
-// URL principali del sito bekboard.it
+// URL principali del sito bekboard.it (solo route esistenti)
 const urls = [
   '', // Homepage
-  'about', // Pagina About (se esiste)
-  'contact', // Pagina Contact
-  'services', // Pagina Services (se esiste)
   ...slugs.map((s) => `work/${s}`) // Portfolio works
 ]
 
@@ -36,7 +33,7 @@ const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls
   .map((u) => {
-    const loc = siteUrl ? `${siteUrl}/${u}`.replace(/\/+/g, '/').replace(/\/$/, '') : `/${u}`
+    const loc = siteUrl ? `${siteUrl}/${u}`.replace(/([^:]\/)\/+/g, '$1').replace(/\/$/, '') : `/${u}`
     const priority = u === '' ? '1.0' : u.includes('work/') ? '0.8' : '0.6'
     const changefreq = u === '' ? 'weekly' : u.includes('work/') ? 'monthly' : 'monthly'
     return `  <url>

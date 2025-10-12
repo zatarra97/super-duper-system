@@ -2,7 +2,6 @@ import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './Pages/Home/Home'
 import WorkDetail from './Pages/WorkDetail/WorkDetail'
-import Animation from './Pages/Animation/Animation'
 import './App.css'
 import NotFound from './Pages/NotFound/NotFound'
 import { ThemeConfig } from "flowbite-react";
@@ -16,7 +15,6 @@ const AppContent: React.FC = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/work/:slug" element={<WorkDetail />} />
-      <Route path="/animation" element={<Animation />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   )
