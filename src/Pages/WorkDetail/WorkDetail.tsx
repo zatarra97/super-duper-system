@@ -98,7 +98,7 @@ export default function WorkDetail() {
               <img src={work.thumbnailUrl} className="w-full h-full object-cover" />
             )}
           </div>
-          <div className="px-4 lg:px-0">
+          <div className="px-4 2xl:px-0">
             <h1 className="text-2xl md:text-[40px] font-basic-bold font-semibold  text-white uppercase">{work.title}</h1>
             <h1 className="text-sm md:text-lg font-basic-bold font-semibold mb-6 uppercase md:-mt-2">{work.shortDesc}</h1>
           </div>
@@ -107,7 +107,7 @@ export default function WorkDetail() {
 
       {/* Descrizione e crew */}
       <section>
-        <div className="max-w-8xl mx-auto px-4 lg:px-0">
+        <div className="max-w-8xl mx-auto px-4 2xl:px-0">
           <div>
             <ul className="space-y-6">
               {work.crew.map((c, idx) => (
