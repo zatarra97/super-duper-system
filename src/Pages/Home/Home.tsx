@@ -106,17 +106,38 @@ export default function Home() {
         description={siteSeoConfig.defaultDescription}
         image={siteSeoConfig.defaultImage}
         canonical={siteSeoConfig.siteUrl}
-        jsonLd={{
-          '@context': 'https://schema.org',
-          '@type': 'WebSite',
-          name: siteSeoConfig.siteName,
-          url: siteSeoConfig.siteUrl,
-          potentialAction: {
-            '@type': 'SearchAction',
-            target: `${siteSeoConfig.siteUrl}/?q={search_term_string}`,
-            'query-input': 'required name=search_term_string'
+        jsonLd={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            name: siteSeoConfig.siteName,
+            url: siteSeoConfig.siteUrl,
+            potentialAction: {
+              '@type': 'SearchAction',
+              target: `${siteSeoConfig.siteUrl}/?q={search_term_string}`,
+              'query-input': 'required name=search_term_string'
+            }
+          },
+          {
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: 'Bekboard Studio',
+            url: siteSeoConfig.siteUrl,
+            logo: {
+              '@type': 'ImageObject',
+              url: siteSeoConfig.defaultImage,
+              width: 512,
+              height: 512
+            },
+            description: 'Bekboard Studio - Produzione video professionale: branded content, videoclip musicali, documentari e spot pubblicitari.',
+            sameAs: [],
+            contactPoint: {
+              '@type': 'ContactPoint',
+              contactType: 'customer service',
+              availableLanguage: 'Italian'
+            }
           }
-        }}
+        ]}
       />
       {/* Animazione di apertura full-screen con dissolvenza finale */}
       {introActive && (

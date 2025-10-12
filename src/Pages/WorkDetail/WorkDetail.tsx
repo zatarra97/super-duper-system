@@ -30,25 +30,48 @@ export default function WorkDetail() {
         description={work.description || work.shortDesc}
         image={work.thumbnailUrl}
         canonical={`${siteSeoConfig.siteUrl}/work/${work.slug}`}
-        jsonLd={{
-          '@context': 'https://schema.org',
-          '@type': 'VideoObject',
-          name: work.title,
-          description: work.description || work.shortDesc,
-          thumbnailUrl: work.thumbnailUrl,
-          uploadDate: new Date().toISOString(),
-          ...(work.youtubeVideoUrl && { embedUrl: work.youtubeVideoUrl }),
-          ...(work.coverVideoUrl && { contentUrl: work.coverVideoUrl }),
-          ...(work.trailerUrl && !work.coverVideoUrl && { contentUrl: work.trailerUrl }),
-          publisher: {
+        jsonLd={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'VideoObject',
+            name: work.title,
+            description: work.description || work.shortDesc,
+            thumbnailUrl: work.thumbnailUrl,
+            uploadDate: new Date().toISOString(),
+            ...(work.youtubeVideoUrl && { embedUrl: work.youtubeVideoUrl }),
+            ...(work.coverVideoUrl && { contentUrl: work.coverVideoUrl }),
+            ...(work.trailerUrl && !work.coverVideoUrl && { contentUrl: work.trailerUrl }),
+            publisher: {
+              '@type': 'Organization',
+              name: siteSeoConfig.siteName,
+              logo: {
+                '@type': 'ImageObject',
+                url: siteSeoConfig.defaultImage,
+                width: 512,
+                height: 512
+              }
+            }
+          },
+          {
+            '@context': 'https://schema.org',
             '@type': 'Organization',
-            name: siteSeoConfig.siteName,
+            name: 'Bekboard Studio',
+            url: siteSeoConfig.siteUrl,
             logo: {
               '@type': 'ImageObject',
-              url: siteSeoConfig.defaultImage
+              url: siteSeoConfig.defaultImage,
+              width: 512,
+              height: 512
+            },
+            description: 'Bekboard Studio - Produzione video professionale: branded content, videoclip musicali, documentari e spot pubblicitari.',
+            sameAs: [],
+            contactPoint: {
+              '@type': 'ContactPoint',
+              contactType: 'customer service',
+              availableLanguage: 'Italian'
             }
           }
-        }}
+        ]}
       />
       <Header />
 
