@@ -147,7 +147,6 @@ export default function Home() {
             className="min-w-full md:min-w-72 md:max-w-72 object-cover intro-zoom"
             src={animationVideo}
             autoPlay
-            muted
             playsInline
             onEnded={endIntro}
           />

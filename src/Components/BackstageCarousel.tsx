@@ -120,7 +120,7 @@ export default function BackstageCarousel({ images, videos = [] }: BackstageCaro
         </div>
       </div>
 
-      {/* Indicatori di posizione */}
+      {/* Indicatori di posizione 
       {totalPages > 1 && (
         <div className="flex justify-center mt-6 space-x-2">
           {Array.from({ length: totalPages }, (_, index) => (
@@ -137,6 +137,7 @@ export default function BackstageCarousel({ images, videos = [] }: BackstageCaro
           ))}
         </div>
       )}
+       */}
 
       <style jsx>{`
         .scrollbar-hide {
