@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
@@ -8,48 +8,76 @@ interface BackstageCarouselProps {
 }
 
 export default function BackstageCarousel({ images, videos = [] }: BackstageCarouselProps) {
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [currentPage, setCurrentPage] = useState(0)
+  const [itemsPerPage, setItemsPerPage] = useState(3)
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   
   const allMedia = [...images, ...videos]
   
-  const scrollToItem = (index: number) => {
+  // Calcola il numero di elementi visibili per pagina in base alla larghezza dello schermo
+  const getItemsPerPage = () => {
+    if (typeof window === 'undefined') return 3
+    const width = window.innerWidth
+    if (width < 640) return 1      // mobile: 1 elemento
+    if (width < 1024) return 2     // tablet: 2 elementi  
+    return 3                       // desktop: 3 elementi
+  }
+  
+  const totalPages = Math.ceil(allMedia.length / itemsPerPage)
+  
+  // Aggiorna il numero di elementi per pagina quando cambia la dimensione dello schermo
+  useEffect(() => {
+    const handleResize = () => {
+      const newItemsPerPage = getItemsPerPage()
+      setItemsPerPage(newItemsPerPage)
+      // Reset alla prima pagina quando cambia il layout
+      setCurrentPage(0)
+    }
+    
+    window.addEventListener('resize', handleResize)
+    // Imposta il valore iniziale
+    handleResize()
+    
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+  
+  const scrollToPage = (pageIndex: number) => {
     if (scrollContainerRef.current) {
       const container = scrollContainerRef.current
-      const itemWidth = container.offsetWidth / 3 // Mostra 3 elementi alla volta su desktop
+      const itemWidth = container.offsetWidth / itemsPerPage
       container.scrollTo({
-        left: index * itemWidth,
+        left: pageIndex * itemWidth * itemsPerPage,
         behavior: 'smooth'
       })
     }
-    setCurrentIndex(index)
+    setCurrentPage(pageIndex)
   }
   
-  const nextItem = () => {
-    const nextIndex = (currentIndex + 1) % allMedia.length
-    scrollToItem(nextIndex)
+  const nextPage = () => {
+    const nextPageIndex = (currentPage + 1) % totalPages
+    scrollToPage(nextPageIndex)
   }
   
-  const prevItem = () => {
-    const prevIndex = currentIndex === 0 ? allMedia.length - 1 : currentIndex - 1
-    scrollToItem(prevIndex)
+  const prevPage = () => {
+    const prevPageIndex = currentPage === 0 ? totalPages - 1 : currentPage - 1
+    scrollToPage(prevPageIndex)
   }
 
   return (
     <div className="relative w-full px-4 md:px-8 lg:px-12 xl:px-14 z-20 bg-black">
       {/* Pulsanti di navigazione */}
       <button
-        onClick={prevItem}
+        onClick={prevPage}
         className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-black/60 hover:bg-black/80 text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 cursor-pointer"
-        aria-label="Media precedente"
+        aria-label="Pagina precedente"
       >
         <FontAwesomeIcon icon={faChevronLeft} />
       </button>
       
       <button
-        onClick={nextItem}
+        onClick={nextPage}
         className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-black/60 hover:bg-black/80 text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 cursor-pointer"
-        aria-label="Media successiva"
+        aria-label="Pagina successiva"
       >
         <FontAwesomeIcon icon={faChevronRight} />
       </button>
@@ -93,22 +121,22 @@ export default function BackstageCarousel({ images, videos = [] }: BackstageCaro
       </div>
 
       {/* Indicatori di posizione */}
-      {/*allMedia.length > 1 && (
+      {totalPages > 1 && (
         <div className="flex justify-center mt-6 space-x-2">
-          {allMedia.map((_, index) => (
+          {Array.from({ length: totalPages }, (_, index) => (
             <button
               key={index}
-              onClick={() => scrollToItem(index)}
+              onClick={() => scrollToPage(index)}
               className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                index === currentIndex 
+                index === currentPage 
                   ? 'bg-white w-8' 
                   : 'bg-white/40 hover:bg-white/60'
               }`}
-              aria-label={`Vai al media ${index + 1}`}
+              aria-label={`Vai alla pagina ${index + 1}`}
             />
           ))}
         </div>
-      )}*/}
+      )}
 
       <style jsx>{`
         .scrollbar-hide {
