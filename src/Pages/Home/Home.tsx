@@ -106,38 +106,17 @@ export default function Home() {
         description={siteSeoConfig.defaultDescription}
         image={siteSeoConfig.defaultImage}
         canonical={siteSeoConfig.siteUrl}
-        jsonLd={[
-          {
-            '@context': 'https://schema.org',
-            '@type': 'WebSite',
-            name: siteSeoConfig.siteName,
-            url: siteSeoConfig.siteUrl,
-            potentialAction: {
-              '@type': 'SearchAction',
-              target: `${siteSeoConfig.siteUrl}/?q={search_term_string}`,
-              'query-input': 'required name=search_term_string'
-            }
-          },
-          {
-            '@context': 'https://schema.org',
-            '@type': 'Organization',
-            name: 'Bekboard Studio',
-            url: siteSeoConfig.siteUrl,
-            logo: {
-              '@type': 'ImageObject',
-              url: siteSeoConfig.defaultImage,
-              width: 512,
-              height: 512
-            },
-            description: 'Bekboard Studio - Produzione video professionale: branded content, videoclip musicali, documentari e spot pubblicitari.',
-            sameAs: [],
-            contactPoint: {
-              '@type': 'ContactPoint',
-              contactType: 'customer service',
-              availableLanguage: 'Italian'
-            }
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'WebSite',
+          name: siteSeoConfig.siteName,
+          url: siteSeoConfig.siteUrl,
+          potentialAction: {
+            '@type': 'SearchAction',
+            target: `${siteSeoConfig.siteUrl}/?q={search_term_string}`,
+            'query-input': 'required name=search_term_string'
           }
-        ]}
+        }}
       />
       {/* Animazione di apertura full-screen con dissolvenza finale */}
       {introActive && (
@@ -147,6 +126,7 @@ export default function Home() {
             className="min-w-full md:min-w-72 md:max-w-72 object-cover intro-zoom"
             src={animationVideo}
             autoPlay
+            muted
             playsInline
             onEnded={endIntro}
           />
@@ -156,37 +136,39 @@ export default function Home() {
       {/* Header fisso */}
       <Header />
 
-      {/* HERO con video di sfondo */}
-      <section className="relative h-[40dvh] md:h-[88vh] min-h-screen overflow-hidden mobile-video-container">
-        {/* Video orizzontale per desktop */}
-        <video 
-          className="absolute inset-0 w-full h-full object-cover hidden md:block" 
-          src={showreelHorizontal} 
-          autoPlay 
-          loop 
-          muted 
-          playsInline
-        />
-        {/* Video verticale per mobile */}
-        <video 
-          className="absolute inset-0 w-full h-full object-cover block md:hidden" 
-          src={showreelVertical} 
-          autoPlay 
-          loop 
-          muted 
-          playsInline
-        />
-        <div className="absolute inset-0 bg-black/20 sm:bg-gradient-to-t " />
-        
-        {/* Icona di scroll */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
-          <img 
-            src={scrollIcon} 
-            alt="Scroll down" 
-            className="w-8 h-8 opacity-80 hover:opacity-100 transition-opacity duration-300 cursor-pointer z-50"
-          />
-        </div>
-      </section>
+       {/* HERO con video di sfondo */}
+       <section className="relative h-[40dvh] md:h-[88vh] min-h-screen overflow-hidden mobile-video-container">
+         {/* Video orizzontale per desktop */}
+         <video 
+           className="absolute inset-0 w-full h-full object-cover hidden md:block" 
+           src={showreelHorizontal} 
+           autoPlay 
+           loop 
+           muted 
+           playsInline
+           preload="metadata"
+         />
+         {/* Video verticale per mobile */}
+         <video 
+           className="absolute inset-0 w-full h-full object-cover block md:hidden" 
+           src={showreelVertical} 
+           autoPlay 
+           loop 
+           muted 
+           playsInline
+           preload="metadata"
+         />
+         <div className="absolute inset-0 bg-black/20 sm:bg-gradient-to-t " />
+         
+         {/* Icona di scroll */}
+         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+           <img 
+             src={scrollIcon} 
+             alt="Scroll down" 
+             className="w-8 h-8 opacity-80 hover:opacity-100 transition-opacity duration-300 cursor-pointer z-50"
+           />
+         </div>
+       </section>
 
       {/* WORKS */}
       <section id="works" className="max-w-8xl mx-auto px-4 pt-8 sm:pt-12 md:pt-16 md:pb-16 pb-10 mt-10 mb-3">
